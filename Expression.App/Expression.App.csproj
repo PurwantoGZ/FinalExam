@@ -1,0 +1,346 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{C8D1EBF8-4511-4A85-BDC5-ADC49AAE3534}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Expression.App</RootNamespace>
+    <AssemblyName>Expression.App</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>x64</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x64\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
+    <OutputPath>bin\x64\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="DevComponents.DotNetBar2, Version=12.4.0.2, Culture=neutral, PublicKeyToken=c39c3242a43eee2b, processorArchitecture=MSIL" />
+    <Reference Include="DirectShowLib-2005">
+      <HintPath>..\..\PENTING\EmotionApps\Emotion.Apps\bin\x64\Debug\DirectShowLib-2005.dll</HintPath>
+    </Reference>
+    <Reference Include="Emgu.CV.UI">
+      <HintPath>..\..\PENTING\EmotionApps\Emotion.Apps\bin\x64\Debug\Emgu.CV.UI.dll</HintPath>
+    </Reference>
+    <Reference Include="Emgu.CV.UI.GL">
+      <HintPath>..\..\PENTING\EmotionApps\Emotion.Apps\bin\x64\Debug\Emgu.CV.UI.GL.dll</HintPath>
+    </Reference>
+    <Reference Include="Emgu.CV.World">
+      <HintPath>..\..\PENTING\EmotionApps\Emotion.Apps\bin\x64\Debug\Emgu.CV.World.dll</HintPath>
+    </Reference>
+    <Reference Include="MetroFramework">
+      <HintPath>..\..\PENTING\Framework Metro\MetroFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="MetroFramework.Design">
+      <HintPath>..\..\PENTING\Framework Metro\MetroFramework.Design.dll</HintPath>
+    </Reference>
+    <Reference Include="MetroFramework.Fonts">
+      <HintPath>..\..\PENTING\Framework Metro\MetroFramework.Fonts.dll</HintPath>
+    </Reference>
+    <Reference Include="NotificationWindow, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\MYDESK\Toats\NotificationWindow\bin\Debug\NotificationWindow.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="ZedGraph">
+      <HintPath>..\..\PENTING\EmotionApps\Emotion.Apps\bin\x64\Debug\ZedGraph.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AccountSettingView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AccountSettingView.Designer.cs">
+      <DependentUpon>AccountSettingView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CamSettingView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CamSettingView.Designer.cs">
+      <DependentUpon>CamSettingView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DataUserView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DataUserView.Designer.cs">
+      <DependentUpon>DataUserView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DetailProfilView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DetailProfilView.Designer.cs">
+      <DependentUpon>DetailProfilView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ExpressionAppView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ExpressionAppView.Designer.cs">
+      <DependentUpon>ExpressionAppView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="InputDataUser.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="InputDataUser.Designer.cs">
+      <DependentUpon>InputDataUser.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LoginView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LoginView.Designer.cs">
+      <DependentUpon>LoginView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MainView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MainView.Designer.cs">
+      <DependentUpon>MainView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="NeSettingView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="NeSettingView.Designer.cs">
+      <DependentUpon>NeSettingView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="NewUserView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="NewUserView.Designer.cs">
+      <DependentUpon>NewUserView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ResultTestingView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ResultTestingView.Designer.cs">
+      <DependentUpon>ResultTestingView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SortDataView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SortDataView.Designer.cs">
+      <DependentUpon>SortDataView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Structures.cs" />
+    <Compile Include="TestingView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TestingView.Designer.cs">
+      <DependentUpon>TestingView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TrainingView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TrainingView.Designer.cs">
+      <DependentUpon>TrainingView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserDataView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UserDataView.Designer.cs">
+      <DependentUpon>UserDataView.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="AccountSettingView.resx">
+      <DependentUpon>AccountSettingView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CamSettingView.resx">
+      <DependentUpon>CamSettingView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DetailProfilView.resx">
+      <DependentUpon>DetailProfilView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ExpressionAppView.resx">
+      <DependentUpon>ExpressionAppView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InputDataUser.resx">
+      <DependentUpon>InputDataUser.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LoginView.resx">
+      <DependentUpon>LoginView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MainView.resx">
+      <DependentUpon>MainView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="NeSettingView.resx">
+      <DependentUpon>NeSettingView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="NewUserView.resx">
+      <DependentUpon>NewUserView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <EmbeddedResource Include="SortDataView.resx">
+      <DependentUpon>SortDataView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TestingView.resx">
+      <DependentUpon>TestingView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TrainingView.dje.resx">
+      <DependentUpon>TrainingView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TrainingView.resx">
+      <DependentUpon>TrainingView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserDataView.resx">
+      <DependentUpon>UserDataView.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="cvextern.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="haarcascade_eye.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="haarcascade_frontalface_alt.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="haarcascade_frontalface_default.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="haarcascade_lefteye_2splits.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="haarcascade_mcs_mouth.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="haarcascade_mouth.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="haarcascade_righteye_2splits.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="msvcp120.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="msvcr120.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="opencv_ffmpeg310_64.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <None Include="Resources\Lock-48.png" />
+    <None Include="Resources\Administrator Male-96.png" />
+    <None Include="Resources\Menu-481.png" />
+    <None Include="Resources\Menu-96.png" />
+    <None Include="Resources\User Menu Male-96.png" />
+    <None Include="Resources\User Menu Male-48.png" />
+    <None Include="Resources\Settings-48.png" />
+    <None Include="Resources\Identity Theft-481.png" />
+    <None Include="Resources\Close Window-321.png" />
+    <None Include="Resources\Menu-48.png" />
+    <None Include="Resources\Facial Recognition Scan-483.png" />
+    <None Include="Resources\Data Sheet-48.png" />
+    <None Include="Resources\Close Window-32.png" />
+    <None Include="Resources\Login As User-961.png" />
+    <None Include="Resources\Login As User-96.png" />
+    <None Include="Resources\camera_addon-48.png" />
+    <None Include="Resources\Facial Recognition Scan-482.png" />
+    <None Include="Resources\Training-482.png" />
+    <None Include="Resources\automatic-24.png" />
+    <None Include="Resources\mind_map-24.png" />
+    <None Include="Resources\automatic-48.png" />
+    <None Include="Resources\mind_map-481.png" />
+    <None Include="Resources\mind_map-48.png" />
+    <None Include="Resources\todo_list-48.png" />
+    <None Include="Resources\list-96.png" />
+    <None Include="Resources\Training-481.png" />
+    <None Include="Resources\User-96.png" />
+    <None Include="Resources\Identity Theft-48.png" />
+    <None Include="Resources\Identity Theft-96.png" />
+    <None Include="Resources\Facial Recognition Scan-481.png" />
+    <None Include="Resources\bullish-48.png" />
+    <None Include="Resources\add_image-48.png" />
+    <None Include="Resources\Expression.png" />
+    <None Include="Resources\cancel-24.png" />
+    <None Include="Resources\Add User Male-48.png" />
+    <None Include="Resources\Help-48.png" />
+    <None Include="Resources\Facial Recognition Scan-48.png" />
+    <None Include="Resources\Training-48.png" />
+    <None Include="Resources\businessman-48.png" />
+    <None Include="Resources\reading-32.png" />
+    <None Include="Resources\add_user-24.png" />
+    <None Include="Resources\add_user-36.png" />
+    <None Include="Resources\Seminar-Purwanto_FIX.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Expression\Expression.csproj">
+      <Project>{A6BFDBD7-3B34-40E1-B795-0FAA4CB53D7E}</Project>
+      <Name>Expression</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
