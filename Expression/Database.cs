@@ -234,8 +234,7 @@ namespace Expression
                 string query = "SELECT `training`.`F1` , `training`.`F2`, `training`.`F3`, `training`.`F4`" +
                                ", `training`.`F5`, `training`.`F6`, `output`.`Output`, `training`.`idUser`" +
                                "FROM `emotion`.`training` INNER JOIN `emotion`.`output` ON(`training`.`idOutput` = `output`.`idOutput`)" +
-                               "INNER JOIN `emotion`.`user` ON(`training`.`idUser` = `user`.`idUser`)INNER JOIN `emotion`.`weight`" +
-                               "ON(`weight`.`idUser` = `user`.`idUser`)WHERE `emotion`.`training`.`idUser`='" + idUser + "' ";
+                               "INNER JOIN `emotion`.`user` ON(`training`.`idUser` = `user`.`idUser`)WHERE `emotion`.`training`.`idUser`='" + idUser + "' ";
                 MySqlCommand cmd = new MySqlCommand(query, connection);
                 DataSet ds1 = new DataSet();
                 MySqlDataAdapter sda = new MySqlDataAdapter(cmd);
@@ -278,8 +277,7 @@ namespace Expression
                 string query = "SELECT `training`.`idTraining`, `training`.`F1` , `training`.`F2`, `training`.`F3`, `training`.`F4`" +
                                ", `training`.`F5`, `training`.`F6`, `output`.`Output`" +
                                "FROM `emotion`.`training` INNER JOIN `emotion`.`output` ON(`training`.`idOutput` = `output`.`idOutput`)" +
-                               "INNER JOIN `emotion`.`user` ON(`training`.`idUser` = `user`.`idUser`)INNER JOIN `emotion`.`weight`" +
-                               "ON(`weight`.`idUser` = `user`.`idUser`)WHERE `emotion`.`training`.`idUser`='" + idUser + "' ";
+                               "INNER JOIN `emotion`.`user` ON(`training`.`idUser` = `user`.`idUser`)WHERE `emotion`.`training`.`idUser`='" + idUser + "' ";
                 MySqlCommand cmd = new MySqlCommand(query, connection);
                 DataSet ds1 = new DataSet();
                 MySqlDataAdapter sda = new MySqlDataAdapter(cmd);
