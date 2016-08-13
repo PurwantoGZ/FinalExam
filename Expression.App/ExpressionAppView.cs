@@ -14,6 +14,7 @@ using MetroFramework.Forms;
 using DirectShowLib;
 using Expression;
 using System.IO;
+using System.Threading;
 
 namespace Expression.App
 {
@@ -29,7 +30,7 @@ namespace Expression.App
 
         #endregion
 
-
+        private string Title, content;
         private string idOutput;
         public int sad = 0, happy = 0;
         public string idUser = null, _pass = null;
@@ -129,7 +130,18 @@ namespace Expression.App
                     db.getFinallyOutput(key, ref Expression);
                     ExpressionText.Text = Expression;
                     ProsentaseText.Text = "Sedih : " + sad.ToString() + "%, Senang: " + happy.ToString() + "%";
-                    
+                    if (Expression.Equals("Sedih"))
+                    {
+                        if (epoch == 6)
+                        {
+                            epoch = 0;
+                        }
+                        content = favoriteName[epoch];
+                        Title = HomeMenu.Text;
+                        TampilNotif(Title, Expression, content);
+                        Console.Beep();
+                        epoch++;
+                    }
                     /*Save Data Testing*/
                     if ((f1 != 0) && (f2 != 0) && (f3 != 0) && (f4 != 0) && (f5 != 0) && (f6 != 0))
                     {
@@ -157,7 +169,7 @@ namespace Expression.App
                         ShownMessage ="Objek Wajah tidak Terdeteksi.";
                     }
                     TrayIcon.BalloonTipText = ShownMessage;
-                    TrayIcon.ShowBalloonTip(800);
+                    TrayIcon.ShowBalloonTip(400);
                 }
             }
             catch (Exception ex)
@@ -252,7 +264,22 @@ namespace Expression.App
         #region Tray Icon Meny
         private void AdminMenu_Click(object sender, EventArgs e)
         {
-            
+            var dashView = new MainView();
+            _capture.Dispose();
+            timer1.Stop();
+            PreviewImage.Image = null;
+            HomeMenu.Text = "Login";
+            toolExit.Text = "Masuk";
+            btnStart.ImageIndex = 2;
+            dashView.FormClosed += new FormClosedEventHandler(dashViewClosed);
+            dashView.Show();
+
+            AdminMenu.Enabled = false;
+        }
+
+        private void dashViewClosed(object sender, FormClosedEventArgs e)
+        {
+            AdminMenu.Enabled = true;
         }
 
         private void ShowMenu_Click(object sender, EventArgs e)
@@ -352,6 +379,7 @@ namespace Expression.App
                     {
                         idUser = tr.ReadLine();
                         _pass = tr.ReadLine();
+                        AdminMenu.Enabled = (idUser.Equals("purwanto@outlook.com")) ? true : false;
                         HomeMenu.Text = db.getUser(idUser);
                         db.getFavorite(idUser, out favoriteName, out priority, out idFavorite);
                         allowCamera();
@@ -435,6 +463,7 @@ namespace Expression.App
                 if (_capture != null)
                 {
                     //_capture.Pause();
+                    timer1.Stop();
                     _capture.Dispose();
                 }
                 Application.ExitThread();
@@ -448,7 +477,16 @@ namespace Expression.App
 
         public ExpressionAppView()
         {
+            Thread t = new Thread(new ThreadStart(SplashStart));
+            t.Start();
+            Thread.Sleep(5000);
             InitializeComponent();
+            t.Abort();
+        }
+
+        public void SplashStart()
+        {
+            Application.Run(new SplashScreenView());
         }
 
         private void toolExit_Click(object sender, EventArgs e)
@@ -492,27 +530,10 @@ namespace Expression.App
         {
             try
             {
-                string Title = null;
-                string content = null;
                 TxtJam.Text = DateTime.Now.ToString("[HH:mm:ss tt]");
                 if (DateTime.Now.Second%10==0)
                 {
-                    SadOrHappy();
-                    if (Expression.Equals("Sedih"))
-                    {
-                        if (epoch==6)
-                        {
-                            epoch = 0;
-                        }
-                        content = favoriteName[epoch];
-                        Title = HomeMenu.Text;
-                        TampilNotif(Title, Expression, content);
-                        Console.Beep();
-                        epoch++;
-                    }else
-                    {
-                    }
-                    
+                    SadOrHappy(); 
                 }
             }
             catch (Exception ex)
@@ -542,7 +563,7 @@ namespace Expression.App
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.ToString());
+                //MessageBox.Show(ex.ToString());
             }
         }
 
@@ -559,10 +580,13 @@ namespace Expression.App
         private void toolDetail_Click(object sender, EventArgs e)
         {
             Bitmap imgProfil = new Bitmap(ExtFace, new Size(220, 220));
-            dView = new DetailProfilView(idUser,imgProfil);
-            dView.FormClosed += new FormClosedEventHandler(dViewClosed);
-            toolDetail.Enabled = false;
-            dView.ShowDialog();
+            if (imgProfil!=null)
+            {
+                dView = new DetailProfilView(idUser, imgProfil, TrayIcon);
+                dView.FormClosed += new FormClosedEventHandler(dViewClosed);
+                toolDetail.Enabled = false;
+                dView.ShowDialog();
+            }
         }
         delegate void detailUnloaded(object sender, FormClosedEventArgs e);
         private void dViewClosed(object sender, FormClosedEventArgs e)
