@@ -232,10 +232,9 @@ namespace Expression.App
             {
                 if (_capture != null)
                 {
-                    _capture.Pause();
-                    //Reset_Cam_Settings_Click(null, null);
                     _capture.Dispose();
                 }
+                this.Hide();
             }
             catch (Exception ex)
             {

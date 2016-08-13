@@ -167,6 +167,12 @@
     <Compile Include="SortDataView.Designer.cs">
       <DependentUpon>SortDataView.cs</DependentUpon>
     </Compile>
+    <Compile Include="SplashScreenView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SplashScreenView.Designer.cs">
+      <DependentUpon>SplashScreenView.cs</DependentUpon>
+    </Compile>
     <Compile Include="Structures.cs" />
     <Compile Include="TestingView.cs">
       <SubType>Form</SubType>
@@ -225,6 +231,9 @@
     </Compile>
     <EmbeddedResource Include="SortDataView.resx">
       <DependentUpon>SortDataView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SplashScreenView.resx">
+      <DependentUpon>SplashScreenView.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="TestingView.resx">
       <DependentUpon>TestingView.cs</DependentUpon>
@@ -285,6 +294,11 @@
     <Content Include="opencv_ffmpeg310_64.dll">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <None Include="Resources\survey-481.png" />
+    <None Include="Resources\Combo Chart-48.png" />
+    <None Include="Resources\manager-48.png" />
+    <None Include="Resources\survey-48.png" />
+    <None Include="Resources\Curriculum-48.png" />
     <None Include="Resources\Lock-48.png" />
     <None Include="Resources\Administrator Male-96.png" />
     <None Include="Resources\Menu-481.png" />

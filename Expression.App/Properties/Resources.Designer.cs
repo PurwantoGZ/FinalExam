@@ -193,6 +193,26 @@ namespace Expression.App.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Combo_Chart_48 {
+            get {
+                object obj = ResourceManager.GetObject("Combo Chart-48", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Curriculum_48 {
+            get {
+                object obj = ResourceManager.GetObject("Curriculum-48", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Data_Sheet_48 {
             get {
                 object obj = ResourceManager.GetObject("Data Sheet-48", resourceCulture);
@@ -333,6 +353,16 @@ namespace Expression.App.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap manager_48 {
+            get {
+                object obj = ResourceManager.GetObject("manager-48", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Menu_48 {
             get {
                 object obj = ResourceManager.GetObject("Menu-48", resourceCulture);
@@ -416,6 +446,26 @@ namespace Expression.App.Properties {
         internal static System.Drawing.Bitmap Settings_48 {
             get {
                 object obj = ResourceManager.GetObject("Settings-48", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap survey_48 {
+            get {
+                object obj = ResourceManager.GetObject("survey-48", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap survey_481 {
+            get {
+                object obj = ResourceManager.GetObject("survey-481", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

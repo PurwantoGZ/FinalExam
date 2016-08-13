@@ -18,11 +18,6 @@ namespace Expression.App
         }
 
         #region Event
-        private void ExitToolsStripMenuItem_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
-
         private void CascadeToolStripMenuItem_Click(object sender, EventArgs e)
         {
             LayoutMdi(MdiLayout.Cascade);
@@ -166,6 +161,11 @@ namespace Expression.App
         private void FUserDataClosed(object sender, FormClosedEventArgs e)
         {
             toolUserData.Enabled = true;
+        }
+
+        protected override void OnClosing(CancelEventArgs e)
+        {
+            this.Hide();
         }
     }
 }

@@ -33,7 +33,7 @@
             this.label15 = new System.Windows.Forms.Label();
             this.PanelUser = new System.Windows.Forms.Panel();
             this.PassWordText = new System.Windows.Forms.TextBox();
-            this.Daftar = new System.Windows.Forms.Button();
+            this.btnSignUp = new System.Windows.Forms.Button();
             this.notif = new System.Windows.Forms.Label();
             this.fullName = new System.Windows.Forms.TextBox();
             this.userID = new System.Windows.Forms.TextBox();
@@ -43,7 +43,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.panelFavorite = new System.Windows.Forms.Panel();
             this.notification = new System.Windows.Forms.Label();
-            this.btnFavorite = new System.Windows.Forms.Button();
+            this.btnSaveData = new System.Windows.Forms.Button();
             this.txtWarna = new System.Windows.Forms.TextBox();
             this.txtBook = new System.Windows.Forms.TextBox();
             this.txtGambar = new System.Windows.Forms.TextBox();
@@ -59,13 +59,15 @@
             this.label5 = new System.Windows.Forms.Label();
             this.panelExkpresi = new System.Windows.Forms.Panel();
             this.label14 = new System.Windows.Forms.Label();
-            this.cbOutput = new MetroFramework.Controls.MetroComboBox();
             this.btnStart = new System.Windows.Forms.Button();
             this.label13 = new System.Windows.Forms.Label();
             this.PanelCapture = new System.Windows.Forms.Panel();
             this.btnCapture = new System.Windows.Forms.Button();
             this.PreviewImage = new Emgu.CV.UI.ImageBox();
             this.label6 = new System.Windows.Forms.Label();
+            this.cbOutput = new System.Windows.Forms.ComboBox();
+            this.notifyIcon1 = new System.Windows.Forms.NotifyIcon(this.components);
+            this.imageList1 = new System.Windows.Forms.ImageList(this.components);
             this.PanelUser.SuspendLayout();
             this.panelFavorite.SuspendLayout();
             this.panelExkpresi.SuspendLayout();
@@ -88,7 +90,7 @@
             // 
             this.PanelUser.BackColor = System.Drawing.SystemColors.MenuBar;
             this.PanelUser.Controls.Add(this.PassWordText);
-            this.PanelUser.Controls.Add(this.Daftar);
+            this.PanelUser.Controls.Add(this.btnSignUp);
             this.PanelUser.Controls.Add(this.notif);
             this.PanelUser.Controls.Add(this.fullName);
             this.PanelUser.Controls.Add(this.userID);
@@ -103,25 +105,28 @@
             // 
             // PassWordText
             // 
+            this.PassWordText.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.PassWordText.Location = new System.Drawing.Point(22, 151);
             this.PassWordText.Name = "PassWordText";
             this.PassWordText.PasswordChar = '*';
-            this.PassWordText.Size = new System.Drawing.Size(233, 26);
+            this.PassWordText.Size = new System.Drawing.Size(211, 29);
             this.PassWordText.TabIndex = 2;
             this.PassWordText.Text = "-";
             // 
-            // Daftar
+            // btnSignUp
             // 
-            this.Daftar.Enabled = false;
-            this.Daftar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.Daftar.ImageKey = "add_user-48.png";
-            this.Daftar.Location = new System.Drawing.Point(265, 149);
-            this.Daftar.Name = "Daftar";
-            this.Daftar.Size = new System.Drawing.Size(87, 34);
-            this.Daftar.TabIndex = 3;
-            this.Daftar.Text = "Daftar";
-            this.Daftar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.Daftar.UseVisualStyleBackColor = true;
+            this.btnSignUp.Enabled = false;
+            this.btnSignUp.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnSignUp.ImageIndex = 1;
+            this.btnSignUp.ImageList = this.imageList1;
+            this.btnSignUp.Location = new System.Drawing.Point(255, 149);
+            this.btnSignUp.Name = "btnSignUp";
+            this.btnSignUp.Size = new System.Drawing.Size(97, 34);
+            this.btnSignUp.TabIndex = 3;
+            this.btnSignUp.Text = "Daftar";
+            this.btnSignUp.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnSignUp.UseVisualStyleBackColor = true;
+            this.btnSignUp.Click += new System.EventHandler(this.btnSignUp_Click);
             // 
             // notif
             // 
@@ -142,6 +147,7 @@
             this.fullName.Size = new System.Drawing.Size(330, 29);
             this.fullName.TabIndex = 1;
             this.fullName.Text = "Masukkan nama lengkap anda";
+            this.fullName.Click += new System.EventHandler(this.fullName_Click);
             // 
             // userID
             // 
@@ -152,6 +158,8 @@
             this.userID.Size = new System.Drawing.Size(211, 29);
             this.userID.TabIndex = 0;
             this.userID.Text = "Masukkan email anda";
+            this.userID.Click += new System.EventHandler(this.userID_Click);
+            this.userID.TextChanged += new System.EventHandler(this.userID_TextChanged);
             // 
             // label4
             // 
@@ -198,7 +206,7 @@
             // 
             this.panelFavorite.BackColor = System.Drawing.SystemColors.MenuBar;
             this.panelFavorite.Controls.Add(this.notification);
-            this.panelFavorite.Controls.Add(this.btnFavorite);
+            this.panelFavorite.Controls.Add(this.btnSaveData);
             this.panelFavorite.Controls.Add(this.txtWarna);
             this.panelFavorite.Controls.Add(this.txtBook);
             this.panelFavorite.Controls.Add(this.txtGambar);
@@ -228,19 +236,21 @@
             this.notification.TabIndex = 21;
             this.notification.Text = "notification";
             // 
-            // btnFavorite
+            // btnSaveData
             // 
-            this.btnFavorite.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnFavorite.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnFavorite.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnFavorite.ImageKey = "save-48.png";
-            this.btnFavorite.Location = new System.Drawing.Point(265, 367);
-            this.btnFavorite.Name = "btnFavorite";
-            this.btnFavorite.Size = new System.Drawing.Size(87, 36);
-            this.btnFavorite.TabIndex = 10;
-            this.btnFavorite.Text = "Simpan";
-            this.btnFavorite.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnFavorite.UseVisualStyleBackColor = true;
+            this.btnSaveData.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnSaveData.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSaveData.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnSaveData.ImageIndex = 0;
+            this.btnSaveData.ImageList = this.imageList1;
+            this.btnSaveData.Location = new System.Drawing.Point(242, 367);
+            this.btnSaveData.Name = "btnSaveData";
+            this.btnSaveData.Size = new System.Drawing.Size(110, 34);
+            this.btnSaveData.TabIndex = 10;
+            this.btnSaveData.Text = "Simpan";
+            this.btnSaveData.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnSaveData.UseVisualStyleBackColor = true;
+            this.btnSaveData.Click += new System.EventHandler(this.btnSaveData_Click);
             // 
             // txtWarna
             // 
@@ -290,6 +300,7 @@
             this.txtMusic.Size = new System.Drawing.Size(330, 29);
             this.txtMusic.TabIndex = 4;
             this.txtMusic.Text = "Masukkan musik kesukaan anda";
+            this.txtMusic.Click += new System.EventHandler(this.txtMusic_Click);
             // 
             // label12
             // 
@@ -371,8 +382,8 @@
             // panelExkpresi
             // 
             this.panelExkpresi.BackColor = System.Drawing.SystemColors.MenuBar;
-            this.panelExkpresi.Controls.Add(this.label14);
             this.panelExkpresi.Controls.Add(this.cbOutput);
+            this.panelExkpresi.Controls.Add(this.label14);
             this.panelExkpresi.Controls.Add(this.btnStart);
             this.panelExkpresi.Controls.Add(this.label13);
             this.panelExkpresi.Controls.Add(this.PanelCapture);
@@ -392,29 +403,22 @@
             this.label14.TabIndex = 14;
             this.label14.Text = "*) Setiap Ekspresi min. 5 posisi";
             // 
-            // cbOutput
-            // 
-            this.cbOutput.FormattingEnabled = true;
-            this.cbOutput.ItemHeight = 23;
-            this.cbOutput.Location = new System.Drawing.Point(20, 44);
-            this.cbOutput.Name = "cbOutput";
-            this.cbOutput.Size = new System.Drawing.Size(234, 29);
-            this.cbOutput.TabIndex = 11;
-            this.cbOutput.UseSelectable = true;
-            // 
             // btnStart
             // 
             this.btnStart.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnStart.Enabled = false;
-            this.btnStart.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnStart.Font = new System.Drawing.Font("Cambria", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnStart.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnStart.ImageIndex = 2;
+            this.btnStart.ImageList = this.imageList1;
             this.btnStart.Location = new System.Drawing.Point(260, 44);
             this.btnStart.Name = "btnStart";
-            this.btnStart.Size = new System.Drawing.Size(100, 29);
+            this.btnStart.Size = new System.Drawing.Size(94, 34);
             this.btnStart.TabIndex = 11;
             this.btnStart.Text = "Mulai";
+            this.btnStart.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnStart.UseVisualStyleBackColor = true;
+            this.btnStart.Click += new System.EventHandler(this.btnStart_Click);
             // 
             // label13
             // 
@@ -438,14 +442,18 @@
             // btnCapture
             // 
             this.btnCapture.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnCapture.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.btnCapture.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCapture.ImageIndex = 1;
-            this.btnCapture.Location = new System.Drawing.Point(0, 458);
+            this.btnCapture.ImageIndex = 4;
+            this.btnCapture.ImageList = this.imageList1;
+            this.btnCapture.Location = new System.Drawing.Point(140, 455);
             this.btnCapture.Name = "btnCapture";
-            this.btnCapture.Size = new System.Drawing.Size(437, 45);
+            this.btnCapture.Size = new System.Drawing.Size(180, 45);
             this.btnCapture.TabIndex = 12;
+            this.btnCapture.Text = "Capture";
+            this.btnCapture.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnCapture.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnCapture.UseVisualStyleBackColor = true;
+            this.btnCapture.Click += new System.EventHandler(this.btnCapture_Click);
             // 
             // PreviewImage
             // 
@@ -467,6 +475,32 @@
             this.label6.TabIndex = 9;
             this.label6.Text = "Perkenalkan Ekspresimu:";
             // 
+            // cbOutput
+            // 
+            this.cbOutput.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbOutput.FormattingEnabled = true;
+            this.cbOutput.Location = new System.Drawing.Point(20, 46);
+            this.cbOutput.Name = "cbOutput";
+            this.cbOutput.Size = new System.Drawing.Size(223, 29);
+            this.cbOutput.TabIndex = 15;
+            this.cbOutput.SelectedIndexChanged += new System.EventHandler(this.cbOutput_SelectedIndexChanged);
+            // 
+            // notifyIcon1
+            // 
+            this.notifyIcon1.Icon = ((System.Drawing.Icon)(resources.GetObject("notifyIcon1.Icon")));
+            this.notifyIcon1.Text = "Daftar Akun My Assistant";
+            this.notifyIcon1.Visible = true;
+            // 
+            // imageList1
+            // 
+            this.imageList1.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList1.ImageStream")));
+            this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
+            this.imageList1.Images.SetKeyName(0, "Add File-48.png");
+            this.imageList1.Images.SetKeyName(1, "Add User Male-48.png");
+            this.imageList1.Images.SetKeyName(2, "Next-48.png");
+            this.imageList1.Images.SetKeyName(3, "Stop-48.png");
+            this.imageList1.Images.SetKeyName(4, "Camera-48.png");
+            // 
             // NewUserView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 19F);
@@ -483,10 +517,12 @@
             this.MinimizeBox = false;
             this.Name = "NewUserView";
             this.Padding = new System.Windows.Forms.Padding(30, 88, 30, 29);
+            this.Resizable = false;
             this.ShowIcon = false;
             this.ShowInTaskbar = false;
             this.Style = MetroFramework.MetroColorStyle.Teal;
             this.Text = "Formulir Pendaftaraan User";
+            this.Load += new System.EventHandler(this.NewUserView_Load);
             this.PanelUser.ResumeLayout(false);
             this.PanelUser.PerformLayout();
             this.panelFavorite.ResumeLayout(false);
@@ -505,7 +541,7 @@
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.Panel PanelUser;
         private System.Windows.Forms.TextBox PassWordText;
-        private System.Windows.Forms.Button Daftar;
+        private System.Windows.Forms.Button btnSignUp;
         private System.Windows.Forms.Label notif;
         private System.Windows.Forms.TextBox fullName;
         private System.Windows.Forms.TextBox userID;
@@ -515,7 +551,7 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Panel panelFavorite;
         private System.Windows.Forms.Label notification;
-        private System.Windows.Forms.Button btnFavorite;
+        private System.Windows.Forms.Button btnSaveData;
         private System.Windows.Forms.TextBox txtWarna;
         private System.Windows.Forms.TextBox txtBook;
         private System.Windows.Forms.TextBox txtGambar;
@@ -531,12 +567,14 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Panel panelExkpresi;
         private System.Windows.Forms.Label label14;
-        private MetroFramework.Controls.MetroComboBox cbOutput;
         private System.Windows.Forms.Button btnStart;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Panel PanelCapture;
         private System.Windows.Forms.Button btnCapture;
         private Emgu.CV.UI.ImageBox PreviewImage;
         private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.ComboBox cbOutput;
+        private System.Windows.Forms.NotifyIcon notifyIcon1;
+        private System.Windows.Forms.ImageList imageList1;
     }
 }

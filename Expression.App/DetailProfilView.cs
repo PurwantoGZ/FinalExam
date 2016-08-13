@@ -18,11 +18,19 @@ namespace Expression.App
         int[] idFavorite = new int[6];
         int[] priority = new int[6];
         Bitmap ImageProfil;
-        public DetailProfilView(string _idUser,Bitmap imgProfil)
+        NotifyIcon trayIcon;
+        public DetailProfilView(string _idUser,Bitmap imgProfil,NotifyIcon notification)
         {
             InitializeComponent();
             IdUser = _idUser;
             this.ImageProfil = imgProfil;
+            ProfilPicture.Image = ImageProfil;
+            Email.Text = IdUser;
+            trayIcon = notification;
+        }
+        public DetailProfilView(string _idUser) {
+            InitializeComponent();
+            IdUser = _idUser;
             ProfilPicture.Image = ImageProfil;
             Email.Text = IdUser;
         }
@@ -78,10 +86,10 @@ namespace Expression.App
                 db.updateFavoriteAll(favoriteName[i], IdUser, i);
             }
 
-            notifyIcon1.BalloonTipIcon = ToolTipIcon.Info;
-            notifyIcon1.BalloonTipTitle = "Informasi";
-            notifyIcon1.BalloonTipText = "Data telah diperbaharui.";
-            notifyIcon1.ShowBalloonTip(700);
+            trayIcon.BalloonTipIcon = ToolTipIcon.Info;
+            trayIcon.BalloonTipTitle = "Informasi";
+            trayIcon.BalloonTipText = "Data telah diperbaharui.";
+            trayIcon.ShowBalloonTip(700);
             CheckConfirm.Checked = false;
             btnSaveData.Enabled = false;
         }
