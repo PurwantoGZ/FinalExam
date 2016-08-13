@@ -1,4 +1,5 @@
 #Class Library Expression Apps
+oleh purwanto@outlook.com
 Dalam Class Lbirary ini terdapat 4 (Empat) Class Utama:
 #1. Class Fann (Fast Artficial Intellegence)
 Class ini berupa kumpulan Controller Function Logic Implementasi Jaringan Syaraf Tiruan menggunakan metode Backpropagation
