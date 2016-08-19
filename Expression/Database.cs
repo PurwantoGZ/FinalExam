@@ -36,7 +36,7 @@ namespace Expression
 
         #region CONNECTION
         //open connection to database
-        private bool OpenConnection()
+        public bool OpenConnection()
         {
             try
             {
@@ -48,11 +48,11 @@ namespace Expression
                 switch (ex.Number)
                 {
                     case 0:
-                        MessageBox.Show("Cannot connect to server.  Contact administrator");
+                        MessageBox.Show("Koneksi ke Server Error !","Kegagalan",MessageBoxButtons.OK,MessageBoxIcon.Error);
                         break;
 
                     case 1045:
-                        MessageBox.Show("Invalid username/password, please try again");
+                        MessageBox.Show("Username/Password Tidak Ditemukan !", "Kegagalan", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         break;
                 }
                 return false;
@@ -60,7 +60,7 @@ namespace Expression
         }
 
         //Close connection
-        private bool CloseConnection()
+        public bool CloseConnection()
         {
             try
             {

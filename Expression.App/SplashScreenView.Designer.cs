@@ -28,15 +28,15 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             this.progressBar2 = new System.Windows.Forms.ProgressBar();
+            this.Status = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.timer1 = new System.Windows.Forms.Timer(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // progressBar2
             // 
+            this.progressBar2.BackColor = System.Drawing.Color.White;
             this.progressBar2.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.progressBar2.Location = new System.Drawing.Point(0, 238);
             this.progressBar2.Name = "progressBar2";
@@ -44,8 +44,21 @@
             this.progressBar2.Style = System.Windows.Forms.ProgressBarStyle.Continuous;
             this.progressBar2.TabIndex = 0;
             // 
+            // Status
+            // 
+            this.Status.AutoSize = true;
+            this.Status.BackColor = System.Drawing.Color.Teal;
+            this.Status.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.Status.Location = new System.Drawing.Point(3, 223);
+            this.Status.Name = "Status";
+            this.Status.Size = new System.Drawing.Size(37, 13);
+            this.Status.TabIndex = 2;
+            this.Status.Text = "Staus:";
+            // 
             // pictureBox1
             // 
+            this.pictureBox1.BackgroundImage = global::Expression.App.Properties.Resources.BGScreen;
+            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pictureBox1.Location = new System.Drawing.Point(0, 0);
             this.pictureBox1.Name = "pictureBox1";
@@ -53,13 +66,10 @@
             this.pictureBox1.TabIndex = 1;
             this.pictureBox1.TabStop = false;
             // 
-            // timer1
-            // 
-            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
-            // 
             // SplashScreenView
             // 
             this.ClientSize = new System.Drawing.Size(444, 261);
+            this.Controls.Add(this.Status);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.progressBar2);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -67,6 +77,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -75,6 +86,6 @@
         private System.Windows.Forms.ProgressBar progressBar1;
         private System.Windows.Forms.ProgressBar progressBar2;
         private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.Timer timer1;
+        private System.Windows.Forms.Label Status;
     }
 }

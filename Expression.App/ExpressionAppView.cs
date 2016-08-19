@@ -479,7 +479,7 @@ namespace Expression.App
         {
             Thread t = new Thread(new ThreadStart(SplashStart));
             t.Start();
-            Thread.Sleep(5000);
+            Thread.Sleep(10000);
             InitializeComponent();
             t.Abort();
         }

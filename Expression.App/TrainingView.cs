@@ -43,9 +43,9 @@ namespace Expression.App
             _sortData.FormClosed += new FormClosedEventHandler(_sortDataClosed);
             _sortData.ShowDialog();
 
-            numDataTraining = help.TotalLines(@"key.ghz");
+            numDataTraining = help.TotalLines(@"terlatih.ghz");
             keys = new int[numDataTraining];
-            keys = help.GetKeyData("key");
+            keys = help.GetKeyData("terlatih");
             btnStartTraining.Text = (numDataTraining > 1) ? "Proses " + numDataTraining.ToString() + " Data" : "Proses";
             btnStartTraining.Enabled = (numDataTraining > 1) ? true : false;
             btnViewData.Enabled = true;
@@ -67,6 +67,7 @@ namespace Expression.App
             if (dlgConfirm==DialogResult.OK)
             {
                 #region YES
+                
                 worker.RunWorkerAsync();
                 list.Clear();
                 Grafik.GraphPane.CurveList.Clear();
@@ -81,11 +82,11 @@ namespace Expression.App
                 ProgressInfo.Maximum = mse.Count;
                 TestingResult.Visible = false;
                 btnStartTraining.Enabled = false;
-                DialogResult dlgResult = MessageBox.Show("Do you to cancel proses training ?", "Confirmation", MessageBoxButtons.OKCancel);
+
+                DialogResult dlgResult = MessageBox.Show("Batalkan Proses Pelaihan Data ?", "Konfirmasi", MessageBoxButtons.OKCancel,MessageBoxIcon.Warning);
                 if (dlgResult == DialogResult.OK)
                 {
                     if (worker.IsBusy) worker.CancelAsync();
-
                 }
                 else
                 {
@@ -99,7 +100,6 @@ namespace Expression.App
                     {
                         btnStartTraining.Enabled = true;
                     }
-                    _testing();
                 }
                 #endregion
             }
@@ -138,11 +138,11 @@ namespace Expression.App
         {
             if (e.Cancelled==true)
             {
-                EpochInfo.Text = "Canceled";
+                Terminal.Items.Add("Dibatalkan");
             }
             else if (!(e.Error==null))
             {
-                EpochInfo.Text = ("Error : " + e.Error.Message);
+                Terminal.Items.Add("Error : " + e.Error.Message);
             }else
             {
                 TestingResult.Visible = true;
@@ -150,6 +150,7 @@ namespace Expression.App
                 LineItem curva = myPane.AddCurve("MSE", list, Color.Teal, SymbolType.None);
                 myPane.AxisChange();
                 Grafik.Refresh();
+                _testing();
             }
         }
 
@@ -160,14 +161,12 @@ namespace Expression.App
             {
                 Terminal.Items.Clear();
             }
-            Terminal.Items.Add("Epoch-" + e.ProgressPercentage + " :" + e.UserState.ToString());
-            
-            EpochInfo.Text = e.UserState as string;
+            Terminal.Items.Add("Epoch-" + e.ProgressPercentage + " :" + e.UserState.ToString());       
         }
 
         private void _doWork(object sender, DoWorkEventArgs e)
         {
-           // worker.ReportProgress(0, "working...");
+            worker.ReportProgress(0, "working...");
             Thread.Sleep(1000);
 
             foreach (var item in mse)
@@ -183,7 +182,6 @@ namespace Expression.App
                     Thread.Sleep(50);
                 }
             }
-            
             worker.ReportProgress(mse.Count, "Done");
         }
 
@@ -216,10 +214,12 @@ namespace Expression.App
                 nn.InitializedWeights();
             }
             #endregion
+            nn.ShowVector(nn.Getweights(), 10, 8, true);
             //nn.ShowMatrix(trainData, numDataTraining, 2, true);
             string hasilBP = null;
             mse = nn.TrainBP(trainData, double.Parse(cbGalat.Text), int.Parse(txtMaxEpoch.Text), double.Parse(cbLearnRate.Text), 0.5,ref hasilBP);
             help.saveWeightNote(nn.Getweights(), "weight");
+            nn.ShowVector(nn.Getweights(), 10, 8, true);
         }
 
         private void _testing()

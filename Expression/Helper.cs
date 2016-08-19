@@ -326,5 +326,32 @@ namespace Expression
         }
         #endregion
 
+        #region Validate File Check
+        public bool isCheckFile(string FileName)
+        {
+            if (File.Exists(FileName))
+            {
+                return true;
+            }else
+            {
+                return false;
+            }
+        }
+        #endregion
+
+        #region Check Connection
+        Database db = new Database();
+        public bool isConnected()
+        {
+            if (db.OpenConnection())
+            {
+                return true;
+            }else
+            {
+                return false;
+            }
+        }
+        #endregion
+
     }
 }

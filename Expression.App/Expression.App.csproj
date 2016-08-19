@@ -93,6 +93,12 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AboutView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AboutView.Designer.cs">
+      <DependentUpon>AboutView.cs</DependentUpon>
+    </Compile>
     <Compile Include="AccountSettingView.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -192,6 +198,9 @@
     <Compile Include="UserDataView.Designer.cs">
       <DependentUpon>UserDataView.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="AboutView.resx">
+      <DependentUpon>AboutView.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="AccountSettingView.resx">
       <DependentUpon>AccountSettingView.cs</DependentUpon>
     </EmbeddedResource>
@@ -294,6 +303,8 @@
     <Content Include="opencv_ffmpeg310_64.dll">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <None Include="Resources\BGScreen.png" />
+    <None Include="Resources\Face_Recognition_FR_Pic.png" />
     <None Include="Resources\survey-481.png" />
     <None Include="Resources\Combo Chart-48.png" />
     <None Include="Resources\manager-48.png" />

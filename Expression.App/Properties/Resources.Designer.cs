@@ -133,6 +133,16 @@ namespace Expression.App.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap BGScreen {
+            get {
+                object obj = ResourceManager.GetObject("BGScreen", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap bullish_48 {
             get {
                 object obj = ResourceManager.GetObject("bullish-48", resourceCulture);
@@ -226,6 +236,46 @@ namespace Expression.App.Properties {
         internal static System.Drawing.Bitmap Expression {
             get {
                 object obj = ResourceManager.GetObject("Expression", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Expression1 {
+            get {
+                object obj = ResourceManager.GetObject("Expression1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Expression2 {
+            get {
+                object obj = ResourceManager.GetObject("Expression2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Expression3 {
+            get {
+                object obj = ResourceManager.GetObject("Expression3", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Face_Recognition_FR_Pic {
+            get {
+                object obj = ResourceManager.GetObject("Face_Recognition_FR_Pic", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -466,6 +516,16 @@ namespace Expression.App.Properties {
         internal static System.Drawing.Bitmap survey_481 {
             get {
                 object obj = ResourceManager.GetObject("survey-481", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap survey_482 {
+            get {
+                object obj = ResourceManager.GetObject("survey-482", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

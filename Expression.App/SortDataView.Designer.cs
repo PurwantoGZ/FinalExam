@@ -33,8 +33,8 @@
             this.checkList = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.btnFinishData = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label2 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.trainingData)).BeginInit();
@@ -53,6 +53,7 @@
             // 
             // trainingData
             // 
+            this.trainingData.AllowUserToAddRows = false;
             this.trainingData.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.trainingData.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.checkList});
@@ -89,6 +90,16 @@
             this.panel2.Size = new System.Drawing.Size(267, 56);
             this.panel2.TabIndex = 2;
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Cambria", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(58, 12);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(181, 32);
+            this.label1.TabIndex = 1;
+            this.label1.Text = "Data Pelatihan";
+            // 
             // pictureBox1
             // 
             this.pictureBox1.BackgroundImage = global::Expression.App.Properties.Resources.todo_list_48;
@@ -99,16 +110,6 @@
             this.pictureBox1.Size = new System.Drawing.Size(72, 56);
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Cambria", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(58, 12);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(181, 32);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "Data Pelatihan";
             // 
             // label2
             // 

@@ -173,7 +173,8 @@ namespace Expression
             double[] initialWeights = new double[numweights];
             for (int i = 0; i < initialWeights.Length; ++i)
             {
-                initialWeights[i] = (0.001 - 0.0001) * rnd.NextDouble() + 0.0001;
+                //initialWeights[i] = (0.001 - 0.0001) * rnd.NextDouble() + 0.0001;
+                initialWeights[i] = rnd.NextDouble();
             }
             this.SetWeights(initialWeights);
         }
@@ -460,7 +461,7 @@ namespace Expression
                     //{
                     //    Console.WriteLine(epoch + " : " + mse);
                     //}
-                    //_mse.Add(epoch, mse);
+                    _mse.Add(epoch, mse);
 
                 } while ((epoch < maxEpoch) && (mse > maxError));
                 hasil = "SSE : " + mse.ToString("F4") + ", Iterasi : " + epoch.ToString();
@@ -505,7 +506,7 @@ namespace Expression
                     Terminal.Items.Add("Data-"+(i+1)+" Target: "+yOutput+" ("+_target+") , Output: "+xOuput+" ("+_hasil+"), Kecocokan:"+_maches);
                     Terminal.Items.Add("---------------------------------------------------------------------------------------");
                 }
-                _accuracy = numCorrect / testData.Length;
+                _accuracy =Math.Round( (numCorrect / testData.Length),2);
             }
             catch (ArgumentNullException ex)
             {

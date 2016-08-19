@@ -118,6 +118,9 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="Expression3" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Expression.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="Administrator Male-96" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Administrator Male-96.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -139,11 +142,17 @@
   <data name="Facial Recognition Scan-483" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Facial Recognition Scan-483.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="survey-481" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\survey-481.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="Facial Recognition Scan-48" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Facial Recognition Scan-48.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Training-482" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Training-482.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Expression2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Expression.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="survey-48" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\survey-48.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -208,8 +217,8 @@
   <data name="Close Window-32" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Close Window-32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Curriculum-48" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Curriculum-48.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Face_Recognition_FR_Pic" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Face_Recognition_FR_Pic.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Menu-481" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Menu-481.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -219,6 +228,9 @@
   </data>
   <data name="mind_map-48" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\mind_map-48.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Expression1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Expression.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="businessman-48" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\businessman-48.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -238,6 +250,9 @@
   <data name="Lock-48" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Lock-48.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="Curriculum-48" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Curriculum-48.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="Expression" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Expression.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -253,13 +268,16 @@
   <data name="add_user-24" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\add_user-24.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="survey-482" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\survey-48.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="Login As User-96" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Login As User-96.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Identity Theft-48" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Identity Theft-48.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="survey-481" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\survey-481.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="BGScreen" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\BGScreen.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

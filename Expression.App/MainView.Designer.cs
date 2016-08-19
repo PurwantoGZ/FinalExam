@@ -32,30 +32,30 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainView));
             this.menuStrip = new System.Windows.Forms.MenuStrip();
             this.dataMenu = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolUserData = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolHasilTraining = new System.Windows.Forms.ToolStripMenuItem();
             this.ProcessMenu = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolTraining = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolTesting = new System.Windows.Forms.ToolStripMenuItem();
             this.toolSetting = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolCamera = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolJST = new System.Windows.Forms.ToolStripMenuItem();
             this.helpMenu = new System.Windows.Forms.ToolStripMenuItem();
+            this.StepToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator8 = new System.Windows.Forms.ToolStripSeparator();
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.statusStrip = new System.Windows.Forms.StatusStrip();
-            this.toolStripStatusLabel = new System.Windows.Forms.ToolStripStatusLabel();
+            this.MainStatus = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolTip = new System.Windows.Forms.ToolTip(this.components);
             this.toolBar = new System.Windows.Forms.ToolStrip();
             this.toolStripLabel1 = new System.Windows.Forms.ToolStripLabel();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.label1 = new System.Windows.Forms.Label();
-            this.IconBar = new System.Windows.Forms.PictureBox();
             this.newUserTool = new System.Windows.Forms.ToolStripButton();
             this.trainingTool = new System.Windows.Forms.ToolStripButton();
             this.testingTool = new System.Windows.Forms.ToolStripButton();
             this.helpTool = new System.Windows.Forms.ToolStripButton();
-            this.toolUserData = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolHasilTraining = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolTraining = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolTesting = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolCamera = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolJST = new System.Windows.Forms.ToolStripMenuItem();
-            this.StepToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.label1 = new System.Windows.Forms.Label();
+            this.IconBar = new System.Windows.Forms.PictureBox();
             this.menuStrip.SuspendLayout();
             this.statusStrip.SuspendLayout();
             this.toolBar.SuspendLayout();
@@ -87,6 +87,21 @@
             this.dataMenu.Size = new System.Drawing.Size(43, 19);
             this.dataMenu.Text = "&Data";
             // 
+            // toolUserData
+            // 
+            this.toolUserData.Image = global::Expression.App.Properties.Resources.manager_48;
+            this.toolUserData.Name = "toolUserData";
+            this.toolUserData.Size = new System.Drawing.Size(156, 22);
+            this.toolUserData.Text = "Data User";
+            this.toolUserData.Click += new System.EventHandler(this.toolUserData_Click);
+            // 
+            // toolHasilTraining
+            // 
+            this.toolHasilTraining.Image = global::Expression.App.Properties.Resources.Combo_Chart_48;
+            this.toolHasilTraining.Name = "toolHasilTraining";
+            this.toolHasilTraining.Size = new System.Drawing.Size(156, 22);
+            this.toolHasilTraining.Text = "Hasil Pengujian";
+            // 
             // ProcessMenu
             // 
             this.ProcessMenu.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -96,6 +111,22 @@
             this.ProcessMenu.Size = new System.Drawing.Size(53, 19);
             this.ProcessMenu.Text = "&Proses";
             // 
+            // toolTraining
+            // 
+            this.toolTraining.Image = global::Expression.App.Properties.Resources.Training_482;
+            this.toolTraining.Name = "toolTraining";
+            this.toolTraining.Size = new System.Drawing.Size(157, 22);
+            this.toolTraining.Text = "Pelatihan Data";
+            this.toolTraining.Click += new System.EventHandler(this.toolTraining_Click);
+            // 
+            // toolTesting
+            // 
+            this.toolTesting.Image = global::Expression.App.Properties.Resources.survey_481;
+            this.toolTesting.Name = "toolTesting";
+            this.toolTesting.Size = new System.Drawing.Size(157, 22);
+            this.toolTesting.Text = "Pengujian Data ";
+            this.toolTesting.Click += new System.EventHandler(this.toolTesting_Click);
+            // 
             // toolSetting
             // 
             this.toolSetting.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -104,6 +135,24 @@
             this.toolSetting.Name = "toolSetting";
             this.toolSetting.Size = new System.Drawing.Size(80, 19);
             this.toolSetting.Text = "Pengaturan";
+            // 
+            // toolCamera
+            // 
+            this.toolCamera.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.toolCamera.Image = global::Expression.App.Properties.Resources.automatic_24;
+            this.toolCamera.Name = "toolCamera";
+            this.toolCamera.Size = new System.Drawing.Size(184, 22);
+            this.toolCamera.Text = "Kamera";
+            this.toolCamera.Click += new System.EventHandler(this.toolCamera_Click);
+            // 
+            // toolJST
+            // 
+            this.toolJST.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.toolJST.Image = global::Expression.App.Properties.Resources.mind_map_24;
+            this.toolJST.Name = "toolJST";
+            this.toolJST.Size = new System.Drawing.Size(184, 22);
+            this.toolJST.Text = "Jaringan Saraf Tiruan";
+            this.toolJST.Click += new System.EventHandler(this.toolJST_Click);
             // 
             // helpMenu
             // 
@@ -115,6 +164,14 @@
             this.helpMenu.Size = new System.Drawing.Size(63, 19);
             this.helpMenu.Text = "&Bantuan";
             // 
+            // StepToolStripMenuItem
+            // 
+            this.StepToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("StepToolStripMenuItem.Image")));
+            this.StepToolStripMenuItem.ImageTransparentColor = System.Drawing.Color.Black;
+            this.StepToolStripMenuItem.Name = "StepToolStripMenuItem";
+            this.StepToolStripMenuItem.Size = new System.Drawing.Size(168, 22);
+            this.StepToolStripMenuItem.Text = "&Cara Penggunaan";
+            // 
             // toolStripSeparator8
             // 
             this.toolStripSeparator8.Name = "toolStripSeparator8";
@@ -124,12 +181,13 @@
             // 
             this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
             this.aboutToolStripMenuItem.Size = new System.Drawing.Size(168, 22);
-            this.aboutToolStripMenuItem.Text = "&About ... ...";
+            this.aboutToolStripMenuItem.Text = "&Tentang";
+            this.aboutToolStripMenuItem.Click += new System.EventHandler(this.aboutToolStripMenuItem_Click);
             // 
             // statusStrip
             // 
             this.statusStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripStatusLabel});
+            this.MainStatus});
             this.statusStrip.Location = new System.Drawing.Point(20, 658);
             this.statusStrip.Name = "statusStrip";
             this.statusStrip.Padding = new System.Windows.Forms.Padding(2, 0, 21, 0);
@@ -137,11 +195,14 @@
             this.statusStrip.TabIndex = 2;
             this.statusStrip.Text = "StatusStrip";
             // 
-            // toolStripStatusLabel
+            // MainStatus
             // 
-            this.toolStripStatusLabel.Name = "toolStripStatusLabel";
-            this.toolStripStatusLabel.Size = new System.Drawing.Size(39, 17);
-            this.toolStripStatusLabel.Text = "Status";
+            this.MainStatus.AutoSize = false;
+            this.MainStatus.ForeColor = System.Drawing.Color.Teal;
+            this.MainStatus.Name = "MainStatus";
+            this.MainStatus.Size = new System.Drawing.Size(200, 17);
+            this.MainStatus.Text = "Status";
+            this.MainStatus.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // toolBar
             // 
@@ -165,6 +226,45 @@
             this.toolStripLabel1.Name = "toolStripLabel1";
             this.toolStripLabel1.Size = new System.Drawing.Size(10, 36);
             this.toolStripLabel1.Text = "|";
+            // 
+            // newUserTool
+            // 
+            this.newUserTool.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.newUserTool.Image = global::Expression.App.Properties.Resources.add_image_48;
+            this.newUserTool.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.newUserTool.Name = "newUserTool";
+            this.newUserTool.Size = new System.Drawing.Size(165, 36);
+            this.newUserTool.Text = "Tambah Data Pelatihan";
+            this.newUserTool.Click += new System.EventHandler(this.newUserTool_Click);
+            // 
+            // trainingTool
+            // 
+            this.trainingTool.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.trainingTool.Image = global::Expression.App.Properties.Resources.Training_48;
+            this.trainingTool.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.trainingTool.Name = "trainingTool";
+            this.trainingTool.Size = new System.Drawing.Size(119, 36);
+            this.trainingTool.Text = "Pelatihan Data";
+            this.trainingTool.Click += new System.EventHandler(this.trainingTool_Click);
+            // 
+            // testingTool
+            // 
+            this.testingTool.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.testingTool.Image = global::Expression.App.Properties.Resources.survey_48;
+            this.testingTool.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.testingTool.Name = "testingTool";
+            this.testingTool.Size = new System.Drawing.Size(126, 36);
+            this.testingTool.Text = "Pengujian Data ";
+            this.testingTool.Click += new System.EventHandler(this.testingTool_Click);
+            // 
+            // helpTool
+            // 
+            this.helpTool.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.helpTool.Image = global::Expression.App.Properties.Resources.Help_48;
+            this.helpTool.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.helpTool.Name = "helpTool";
+            this.helpTool.Size = new System.Drawing.Size(87, 36);
+            this.helpTool.Text = "Bantuan";
             // 
             // panel1
             // 
@@ -197,102 +297,6 @@
             this.IconBar.Size = new System.Drawing.Size(55, 44);
             this.IconBar.TabIndex = 0;
             this.IconBar.TabStop = false;
-            // 
-            // newUserTool
-            // 
-            this.newUserTool.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.newUserTool.Image = global::Expression.App.Properties.Resources.add_image_48;
-            this.newUserTool.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.newUserTool.Name = "newUserTool";
-            this.newUserTool.Size = new System.Drawing.Size(165, 36);
-            this.newUserTool.Text = "Tambah Data Pelatihan";
-            this.newUserTool.Click += new System.EventHandler(this.newUserTool_Click);
-            // 
-            // trainingTool
-            // 
-            this.trainingTool.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.trainingTool.Image = global::Expression.App.Properties.Resources.Training_48;
-            this.trainingTool.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.trainingTool.Name = "trainingTool";
-            this.trainingTool.Size = new System.Drawing.Size(119, 36);
-            this.trainingTool.Text = "Pelatihan Data";
-            this.trainingTool.Click += new System.EventHandler(this.trainingTool_Click);
-            // 
-            // testingTool
-            // 
-            this.testingTool.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.testingTool.Image = global::Expression.App.Properties.Resources.survey_48;
-            this.testingTool.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.testingTool.Name = "testingTool";
-            this.testingTool.Size = new System.Drawing.Size(186, 36);
-            this.testingTool.Text = "Pengujian Data Tak Terlatih";
-            this.testingTool.Click += new System.EventHandler(this.testingTool_Click);
-            // 
-            // helpTool
-            // 
-            this.helpTool.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.helpTool.Image = global::Expression.App.Properties.Resources.Help_48;
-            this.helpTool.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.helpTool.Name = "helpTool";
-            this.helpTool.Size = new System.Drawing.Size(87, 36);
-            this.helpTool.Text = "Bantuan";
-            // 
-            // toolUserData
-            // 
-            this.toolUserData.Image = global::Expression.App.Properties.Resources.manager_48;
-            this.toolUserData.Name = "toolUserData";
-            this.toolUserData.Size = new System.Drawing.Size(156, 22);
-            this.toolUserData.Text = "Data User";
-            this.toolUserData.Click += new System.EventHandler(this.toolUserData_Click);
-            // 
-            // toolHasilTraining
-            // 
-            this.toolHasilTraining.Image = global::Expression.App.Properties.Resources.Combo_Chart_48;
-            this.toolHasilTraining.Name = "toolHasilTraining";
-            this.toolHasilTraining.Size = new System.Drawing.Size(156, 22);
-            this.toolHasilTraining.Text = "Hasil Pengujian";
-            // 
-            // toolTraining
-            // 
-            this.toolTraining.Image = global::Expression.App.Properties.Resources.Training_482;
-            this.toolTraining.Name = "toolTraining";
-            this.toolTraining.Size = new System.Drawing.Size(217, 22);
-            this.toolTraining.Text = "Pelatihan";
-            this.toolTraining.Click += new System.EventHandler(this.toolTraining_Click);
-            // 
-            // toolTesting
-            // 
-            this.toolTesting.Image = global::Expression.App.Properties.Resources.survey_481;
-            this.toolTesting.Name = "toolTesting";
-            this.toolTesting.Size = new System.Drawing.Size(217, 22);
-            this.toolTesting.Text = "Pengujian Data Tak Terlatih";
-            this.toolTesting.Click += new System.EventHandler(this.toolTesting_Click);
-            // 
-            // toolCamera
-            // 
-            this.toolCamera.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.toolCamera.Image = global::Expression.App.Properties.Resources.automatic_24;
-            this.toolCamera.Name = "toolCamera";
-            this.toolCamera.Size = new System.Drawing.Size(184, 22);
-            this.toolCamera.Text = "Kamera";
-            this.toolCamera.Click += new System.EventHandler(this.toolCamera_Click);
-            // 
-            // toolJST
-            // 
-            this.toolJST.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.toolJST.Image = global::Expression.App.Properties.Resources.mind_map_24;
-            this.toolJST.Name = "toolJST";
-            this.toolJST.Size = new System.Drawing.Size(184, 22);
-            this.toolJST.Text = "Jaringan Saraf Tiruan";
-            this.toolJST.Click += new System.EventHandler(this.toolJST_Click);
-            // 
-            // StepToolStripMenuItem
-            // 
-            this.StepToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("StepToolStripMenuItem.Image")));
-            this.StepToolStripMenuItem.ImageTransparentColor = System.Drawing.Color.Black;
-            this.StepToolStripMenuItem.Name = "StepToolStripMenuItem";
-            this.StepToolStripMenuItem.Size = new System.Drawing.Size(168, 22);
-            this.StepToolStripMenuItem.Text = "&Cara Penggunaan";
             // 
             // MainView
             // 
@@ -332,7 +336,7 @@
         private System.Windows.Forms.MenuStrip menuStrip;
         private System.Windows.Forms.StatusStrip statusStrip;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator8;
-        private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel;
+        private System.Windows.Forms.ToolStripStatusLabel MainStatus;
         private System.Windows.Forms.ToolStripMenuItem aboutToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem dataMenu;
         private System.Windows.Forms.ToolStripMenuItem ProcessMenu;

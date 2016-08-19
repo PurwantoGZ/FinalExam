@@ -54,7 +54,6 @@
             this.label7 = new System.Windows.Forms.Label();
             this.StatusInfo = new System.Windows.Forms.StatusStrip();
             this.ProgressInfo = new System.Windows.Forms.ToolStripProgressBar();
-            this.EpochInfo = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
             this.TrueValue = new System.Windows.Forms.ToolStripStatusLabel();
             this.FalseValue = new System.Windows.Forms.ToolStripStatusLabel();
@@ -277,7 +276,6 @@
             resources.ApplyResources(this.StatusInfo, "StatusInfo");
             this.StatusInfo.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.ProgressInfo,
-            this.EpochInfo,
             this.toolStripStatusLabel1,
             this.TrueValue,
             this.FalseValue});
@@ -288,13 +286,6 @@
             this.ProgressInfo.ForeColor = System.Drawing.Color.Teal;
             this.ProgressInfo.Name = "ProgressInfo";
             resources.ApplyResources(this.ProgressInfo, "ProgressInfo");
-            // 
-            // EpochInfo
-            // 
-            resources.ApplyResources(this.EpochInfo, "EpochInfo");
-            this.EpochInfo.BackColor = System.Drawing.Color.Transparent;
-            this.EpochInfo.ForeColor = System.Drawing.Color.Teal;
-            this.EpochInfo.Name = "EpochInfo";
             // 
             // toolStripStatusLabel1
             // 
@@ -398,7 +389,6 @@
         private System.Windows.Forms.ListBox TestingResult;
         private System.Windows.Forms.StatusStrip StatusInfo;
         private System.Windows.Forms.ToolStripProgressBar ProgressInfo;
-        private System.Windows.Forms.ToolStripStatusLabel EpochInfo;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.ToolStripStatusLabel TrueValue;

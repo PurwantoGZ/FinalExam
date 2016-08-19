@@ -55,12 +55,14 @@ namespace Expression.App
             inputData.MdiParent = this;
             inputData.FormClosed += new FormClosedEventHandler(inputData_Closed);
             inputData.Show();
+            MainStatus.Text = "Input Data...(berjalan)";
         }
 
         delegate void inputData_Loaded(object sender, FormClosedEventArgs e);
          void inputData_Closed(object sender, FormClosedEventArgs e)
         {
             newUserTool.Enabled = true;
+            MainStatus.Text = "Input Data...(selesai)";
         }
 
         #endregion
@@ -72,11 +74,13 @@ namespace Expression.App
             trainingView.MdiParent = this;
             trainingView.FormClosed += new FormClosedEventHandler(trainingViewClosed);
             trainingView.Show();
+            MainStatus.Text = "Pelatihan Data...(berjalan)";
         }
 
         private void trainingViewClosed(object sender, FormClosedEventArgs e)
         {
             trainingTool.Enabled = true;
+            MainStatus.Text = "Pelatihan Data...(selesai)";
         }
 
         private void testingTool_Click(object sender, EventArgs e)
@@ -86,11 +90,13 @@ namespace Expression.App
             testingView.MdiParent = this;
             testingView.FormClosed += new FormClosedEventHandler(testingViewClosed);
             testingView.Show();
+            MainStatus.Text = "Pengujian Data...(berjalan)";
         }
 
         private void testingViewClosed(object sender, FormClosedEventArgs e)
         {
             testingTool.Enabled = true;
+            MainStatus.Text = "Pengujian Data...(selesai)";
         }
 
         private void toolJST_Click(object sender, EventArgs e)
@@ -166,6 +172,20 @@ namespace Expression.App
         protected override void OnClosing(CancelEventArgs e)
         {
             this.Hide();
+        }
+
+        private void aboutToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var aboutView = new AboutView();
+            aboutView.FormClosed += new FormClosedEventHandler(aboutViewClosed);
+            aboutView.MdiParent = this;
+            aboutToolStripMenuItem.Enabled = false;
+            aboutView.Show();
+        }
+
+        private void aboutViewClosed(object sender, FormClosedEventArgs e)
+        {
+            aboutToolStripMenuItem.Enabled = true;
         }
     }
 }

@@ -17,7 +17,7 @@ namespace Expression.App
         CheckBox checkboxHeader = new CheckBox();
         bool isChecked = false;
         Helper help = new Helper();
-        int i = 0;
+        int i = 0;int numUnchecked = 0;
         public SortDataView(string userId)
         {
             InitializeComponent();
@@ -43,22 +43,32 @@ namespace Expression.App
                 {
                     i++;
                 }
+                else
+                {
+                    numUnchecked++;
+                }
             }
             #endregion
 
             #region save Key
-            int[] saveK = new int[i];
-            int j = 0;
+            int[] terlatih = new int[i];
+            int[] takTerlatik = new int[numUnchecked];
+            int j = 0;int k = 0;
             foreach (DataGridViewRow row in trainingData.Rows)
             {
                 bool isSelected = Convert.ToBoolean(row.Cells[0].Value);
                 if (isSelected)
                 {
-                    saveK[j] = int.Parse(row.Cells[1].Value.ToString());
+                    terlatih[j] = int.Parse(row.Cells[1].Value.ToString());
                     j++;
+                }else
+                {
+                    takTerlatik[k]= int.Parse(row.Cells[1].Value.ToString());
+                    k++;
                 }
             }
-            help.saveKeyNote(saveK, "key");
+            help.saveKeyNote(terlatih, "terlatih");
+            help.saveKeyNote(takTerlatik, "takTerlatih");
             #endregion
 
             this.Close();
