@@ -187,5 +187,19 @@ namespace Expression.App
         {
             aboutToolStripMenuItem.Enabled = true;
         }
+
+        private void toolIdentification_Click(object sender, EventArgs e)
+        {
+            var idenView = new IdentifikasiView();
+            idenView.FormClosed += new FormClosedEventHandler(idenViewClode);
+            idenView.MdiParent = this;
+            toolIdentification.Enabled = false;
+            idenView.Show();
+        }
+
+        private void idenViewClode(object sender, FormClosedEventArgs e)
+        {
+            toolIdentification.Enabled = true;
+        }
     }
 }

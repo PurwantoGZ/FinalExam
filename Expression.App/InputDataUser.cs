@@ -10,9 +10,9 @@ using Emgu.CV;
 using Emgu.CV.CvEnum;
 using Emgu.CV.Structure;
 using Emgu.Util;
-using MetroFramework.Forms;
 using DirectShowLib;
 using Expression;
+using MetroFramework.Forms;
 namespace Expression.App
 {
     public partial class InputDataUser : MetroForm
@@ -247,7 +247,7 @@ namespace Expression.App
             using (ofd)
             {
                 ofd.Title = "Open Image Training";
-                ofd.Filter = "Jpg Files (*.jpg)|*.jpg";
+                ofd.Filter = "Image files (*.jpg, *.jpeg, *.jpe, *.jfif, *.png) | *.jpg; *.jpeg; *.jpe; *.jfif; *.png";
                 if (ofd.ShowDialog() == DialogResult.OK)
                 {
                     frame = new Mat(ofd.FileName, LoadImageType.Color);
@@ -277,5 +277,7 @@ namespace Expression.App
         {
             db.UserId(ref idUser, cbUserId.Text);
         }
+
+
     }
 }

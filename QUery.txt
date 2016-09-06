@@ -1,0 +1,6 @@
+SELECT `output`.`Output`, `testing`.`timelog` FROM `output`,`testing` WHERE `testing`.`idOutput`=`output`.`idOutput` ORDER BY `testing`.`timelog`;
+
+SELECT `output`.`Output` AS 'Ekpresi',  COUNT(output.`Output`) AS 'jumlah',DATE(`testing`.`timelog`) AS 'Tanggal',TIME(`testing`.`timelog`) AS 'Waktu'
+FROM output, testing
+WHERE output.`idOutput`=testing.`idOutput`
+GROUP BY testing.`timelog` , `output`.`Output`;

@@ -146,12 +146,14 @@ namespace Expression.App
                     if ((f1 != 0) && (f2 != 0) && (f3 != 0) && (f4 != 0) && (f5 != 0) && (f6 != 0))
                     {
                         string folder = @"E:\HasilCropping\";
-                        string iName = r.NextDouble().ToString() + ".png";
+                        string iName ="["+Expression+"]"+ r.NextDouble().ToString() + ".png";
                         Bitmap imgSave = new Bitmap(ExtFace,new Size(212, 206));
                         picCropped.Image = imgSave;
                         imgSave.Save(folder + iName);
                         string dataImage = iName;
-                        //db.saveTesting(Convert.ToInt32(key), _f1, _f2, _f3, _f4, _f5, _f6, idUser, sad, happy,dataImage);
+                        string dateForMySql = TxtJam.ToString();
+                        string saveDate= DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
+                        db.saveTesting(Convert.ToInt32(key), _f1, _f2, _f3, _f4, _f5, _f6, idUser, sad, happy, saveDate, dataImage);
                     }
                     #endregion
                 }
@@ -310,6 +312,19 @@ namespace Expression.App
         }
         #endregion
 
+        private void toolHistory_Click(object sender, EventArgs e)
+        {
+            toolHistory.Enabled = false;
+            var historyView = new HistoryView(idUser);
+            historyView.FormClosed += new FormClosedEventHandler(historyViewCLosed);
+            historyView.ShowDialog();
+            
+        }
+
+        private void historyViewCLosed(object sender, FormClosedEventArgs e)
+        {
+            toolHistory.Enabled = true;
+        }
 
         private void runCapture()
         {
@@ -381,6 +396,7 @@ namespace Expression.App
                         _pass = tr.ReadLine();
                         AdminMenu.Enabled = (idUser.Equals("purwanto@outlook.com")) ? true : false;
                         HomeMenu.Text = db.getUser(idUser);
+                        btnStart.Enabled = true;
                         db.getFavorite(idUser, out favoriteName, out priority, out idFavorite);
                         allowCamera();
                         timer1.Start();
@@ -389,8 +405,12 @@ namespace Expression.App
                 }
                 else
                 {
-                    MessageBox.Show("Anda belum terdaftar, Silahkan daftar dahulu.");
+                    MessageBox.Show("Anda belum terdaftar, Silahkan daftar dahulu.","Informasi",MessageBoxButtons.OK,MessageBoxIcon.Warning);
                     HomeMenu.Text = "Login";
+                    btnStart.Enabled = false;
+                    toolDetail.Enabled = false;
+                    toolHistory.Enabled = false;
+                    toolExit.Text = "Masuk";
                     timer1.Stop();
                 }
             }
@@ -418,6 +438,7 @@ namespace Expression.App
                 {
                     MessageBox.Show(excpt.Message);
                 }
+                toolExit.Text = "Keluar";
             }
             else if (dialogResult == DialogResult.No)
             {
@@ -501,12 +522,13 @@ namespace Expression.App
                     checkUser();
                 }else
                 {
-                    Application.Exit();
+                    //Application.Exit();
+                    btnStart_Click(sender,e);
                 }
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.ToString());
+                //MessageBox.Show(ex.ToString());
             }
         }
 
@@ -516,7 +538,7 @@ namespace Expression.App
             {
                 initiliazedJst();
                 checkUser();
-                trainDataUser();
+                //trainDataUser();
                 timer1.Interval = 300;
                 timer1.Tick += timer1_Tick;
             }
@@ -530,7 +552,7 @@ namespace Expression.App
         {
             try
             {
-                TxtJam.Text = DateTime.Now.ToString("[HH:mm:ss tt]");
+                TxtJam.Text = DateTime.Now.ToString("HH:mm:ss tt");
                 if (DateTime.Now.Second%10==0)
                 {
                     SadOrHappy(); 
@@ -549,6 +571,8 @@ namespace Expression.App
                 if (btnStart.ImageIndex == 2)
                 {
                     checkUser();
+                    toolDetail.Enabled = true;
+                    toolHistory.Enabled = true;
                     toolExit.Text = "Keluar";
                 }
                 else
@@ -558,6 +582,8 @@ namespace Expression.App
                     PreviewImage.Image = null;
                     HomeMenu.Text = "Login";
                     toolExit.Text = "Masuk";
+                    toolDetail.Enabled = false;
+                    toolHistory.Enabled = false;
                     btnStart.ImageIndex = 2;
                 }
             }
@@ -573,25 +599,32 @@ namespace Expression.App
         }
 
         delegate void loginUnloaded(object sender, FormClosedEventArgs e);
+
         private void loginFormClosed(object sender, FormClosedEventArgs e)
         {
         }
 
         private void toolDetail_Click(object sender, EventArgs e)
         {
-            Bitmap imgProfil = new Bitmap(ExtFace, new Size(220, 220));
-            if (imgProfil!=null)
+            if (ExtFace!=null)
             {
-                dView = new DetailProfilView(idUser, imgProfil, TrayIcon);
-                dView.FormClosed += new FormClosedEventHandler(dViewClosed);
-                toolDetail.Enabled = false;
-                dView.ShowDialog();
+                Bitmap imgProfil = new Bitmap(ExtFace, new Size(220, 220));
+                if (imgProfil != null)
+                {
+                    dView = new DetailProfilView(idUser, imgProfil, TrayIcon);
+                    dView.FormClosed += new FormClosedEventHandler(dViewClosed);
+                    toolDetail.Enabled = false;
+                    dView.ShowDialog();
+                }
             }
         }
+
         delegate void detailUnloaded(object sender, FormClosedEventArgs e);
+
         private void dViewClosed(object sender, FormClosedEventArgs e)
         { 
             toolDetail.Enabled = true;
         }
+
     }
 }

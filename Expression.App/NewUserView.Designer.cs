@@ -34,6 +34,7 @@
             this.PanelUser = new System.Windows.Forms.Panel();
             this.PassWordText = new System.Windows.Forms.TextBox();
             this.btnSignUp = new System.Windows.Forms.Button();
+            this.imageList1 = new System.Windows.Forms.ImageList(this.components);
             this.notif = new System.Windows.Forms.Label();
             this.fullName = new System.Windows.Forms.TextBox();
             this.userID = new System.Windows.Forms.TextBox();
@@ -58,19 +59,40 @@
             this.label7 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.panelExkpresi = new System.Windows.Forms.Panel();
+            this.label24 = new System.Windows.Forms.Label();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.btnSaveCitra = new System.Windows.Forms.Button();
             this.label14 = new System.Windows.Forms.Label();
-            this.btnStart = new System.Windows.Forms.Button();
             this.label13 = new System.Windows.Forms.Label();
+            this.cbOutput = new System.Windows.Forms.ComboBox();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.txtF6 = new System.Windows.Forms.TextBox();
+            this.txtF5 = new System.Windows.Forms.TextBox();
+            this.txtF4 = new System.Windows.Forms.TextBox();
+            this.txtF3 = new System.Windows.Forms.TextBox();
+            this.txtF2 = new System.Windows.Forms.TextBox();
+            this.txtF1 = new System.Windows.Forms.TextBox();
+            this.label17 = new System.Windows.Forms.Label();
+            this.label18 = new System.Windows.Forms.Label();
+            this.label19 = new System.Windows.Forms.Label();
+            this.label20 = new System.Windows.Forms.Label();
+            this.label21 = new System.Windows.Forms.Label();
+            this.label22 = new System.Windows.Forms.Label();
+            this.label23 = new System.Windows.Forms.Label();
+            this.label16 = new System.Windows.Forms.Label();
             this.PanelCapture = new System.Windows.Forms.Panel();
-            this.btnCapture = new System.Windows.Forms.Button();
+            this.btnStart = new System.Windows.Forms.Button();
             this.PreviewImage = new Emgu.CV.UI.ImageBox();
             this.label6 = new System.Windows.Forms.Label();
-            this.cbOutput = new System.Windows.Forms.ComboBox();
             this.notifyIcon1 = new System.Windows.Forms.NotifyIcon(this.components);
-            this.imageList1 = new System.Windows.Forms.ImageList(this.components);
+            this.label25 = new System.Windows.Forms.Label();
+            this.txtNumRecord = new System.Windows.Forms.Label();
+            this.btnExit = new System.Windows.Forms.Button();
             this.PanelUser.SuspendLayout();
             this.panelFavorite.SuspendLayout();
             this.panelExkpresi.SuspendLayout();
+            this.groupBox1.SuspendLayout();
+            this.groupBox2.SuspendLayout();
             this.PanelCapture.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PreviewImage)).BeginInit();
             this.SuspendLayout();
@@ -100,7 +122,7 @@
             this.PanelUser.Controls.Add(this.label1);
             this.PanelUser.Location = new System.Drawing.Point(27, 91);
             this.PanelUser.Name = "PanelUser";
-            this.PanelUser.Size = new System.Drawing.Size(376, 194);
+            this.PanelUser.Size = new System.Drawing.Size(376, 202);
             this.PanelUser.TabIndex = 17;
             // 
             // PassWordText
@@ -121,12 +143,23 @@
             this.btnSignUp.ImageList = this.imageList1;
             this.btnSignUp.Location = new System.Drawing.Point(255, 149);
             this.btnSignUp.Name = "btnSignUp";
-            this.btnSignUp.Size = new System.Drawing.Size(97, 34);
+            this.btnSignUp.Size = new System.Drawing.Size(97, 43);
             this.btnSignUp.TabIndex = 3;
             this.btnSignUp.Text = "Daftar";
             this.btnSignUp.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnSignUp.UseVisualStyleBackColor = true;
             this.btnSignUp.Click += new System.EventHandler(this.btnSignUp_Click);
+            // 
+            // imageList1
+            // 
+            this.imageList1.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList1.ImageStream")));
+            this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
+            this.imageList1.Images.SetKeyName(0, "Add File-48.png");
+            this.imageList1.Images.SetKeyName(1, "Add User Male-48.png");
+            this.imageList1.Images.SetKeyName(2, "Next-48.png");
+            this.imageList1.Images.SetKeyName(3, "Stop-48.png");
+            this.imageList1.Images.SetKeyName(4, "Camera-48.png");
+            this.imageList1.Images.SetKeyName(5, "add_image-48.png");
             // 
             // notif
             // 
@@ -220,7 +253,8 @@
             this.panelFavorite.Controls.Add(this.label8);
             this.panelFavorite.Controls.Add(this.label7);
             this.panelFavorite.Controls.Add(this.label5);
-            this.panelFavorite.Location = new System.Drawing.Point(27, 291);
+            this.panelFavorite.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.panelFavorite.Location = new System.Drawing.Point(27, 299);
             this.panelFavorite.Name = "panelFavorite";
             this.panelFavorite.Size = new System.Drawing.Size(376, 417);
             this.panelFavorite.TabIndex = 18;
@@ -239,15 +273,15 @@
             // btnSaveData
             // 
             this.btnSaveData.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnSaveData.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSaveData.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.btnSaveData.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnSaveData.ImageIndex = 0;
             this.btnSaveData.ImageList = this.imageList1;
-            this.btnSaveData.Location = new System.Drawing.Point(242, 367);
+            this.btnSaveData.Location = new System.Drawing.Point(218, 367);
             this.btnSaveData.Name = "btnSaveData";
-            this.btnSaveData.Size = new System.Drawing.Size(110, 34);
+            this.btnSaveData.Size = new System.Drawing.Size(134, 43);
             this.btnSaveData.TabIndex = 10;
-            this.btnSaveData.Text = "Simpan";
+            this.btnSaveData.Text = "Simpan Data";
             this.btnSaveData.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnSaveData.UseVisualStyleBackColor = true;
             this.btnSaveData.Click += new System.EventHandler(this.btnSaveData_Click);
@@ -382,85 +416,270 @@
             // panelExkpresi
             // 
             this.panelExkpresi.BackColor = System.Drawing.SystemColors.MenuBar;
-            this.panelExkpresi.Controls.Add(this.cbOutput);
-            this.panelExkpresi.Controls.Add(this.label14);
-            this.panelExkpresi.Controls.Add(this.btnStart);
-            this.panelExkpresi.Controls.Add(this.label13);
+            this.panelExkpresi.Controls.Add(this.txtNumRecord);
+            this.panelExkpresi.Controls.Add(this.label25);
+            this.panelExkpresi.Controls.Add(this.label24);
+            this.panelExkpresi.Controls.Add(this.groupBox1);
+            this.panelExkpresi.Controls.Add(this.groupBox2);
+            this.panelExkpresi.Controls.Add(this.label16);
             this.panelExkpresi.Controls.Add(this.PanelCapture);
             this.panelExkpresi.Controls.Add(this.label6);
+            this.panelExkpresi.Font = new System.Drawing.Font("Cambria", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.panelExkpresi.Location = new System.Drawing.Point(409, 91);
             this.panelExkpresi.Name = "panelExkpresi";
-            this.panelExkpresi.Size = new System.Drawing.Size(476, 615);
+            this.panelExkpresi.Size = new System.Drawing.Size(533, 625);
             this.panelExkpresi.TabIndex = 19;
+            // 
+            // label24
+            // 
+            this.label24.AutoSize = true;
+            this.label24.BackColor = System.Drawing.Color.Teal;
+            this.label24.Font = new System.Drawing.Font("Cambria", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label24.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.label24.Location = new System.Drawing.Point(17, 538);
+            this.label24.Name = "label24";
+            this.label24.Size = new System.Drawing.Size(43, 19);
+            this.label24.TabIndex = 20;
+            this.label24.Text = "Ket *";
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.btnSaveCitra);
+            this.groupBox1.Controls.Add(this.label14);
+            this.groupBox1.Controls.Add(this.label13);
+            this.groupBox1.Controls.Add(this.cbOutput);
+            this.groupBox1.Location = new System.Drawing.Point(302, 376);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(227, 158);
+            this.groupBox1.TabIndex = 25;
+            this.groupBox1.TabStop = false;
+            // 
+            // btnSaveCitra
+            // 
+            this.btnSaveCitra.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnSaveCitra.Enabled = false;
+            this.btnSaveCitra.Font = new System.Drawing.Font("Cambria", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSaveCitra.ImageIndex = 5;
+            this.btnSaveCitra.ImageList = this.imageList1;
+            this.btnSaveCitra.Location = new System.Drawing.Point(11, 104);
+            this.btnSaveCitra.Name = "btnSaveCitra";
+            this.btnSaveCitra.Size = new System.Drawing.Size(200, 43);
+            this.btnSaveCitra.TabIndex = 21;
+            this.btnSaveCitra.Text = "Simpan Data Ekspresi";
+            this.btnSaveCitra.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnSaveCitra.UseVisualStyleBackColor = true;
+            this.btnSaveCitra.Click += new System.EventHandler(this.btnSaveCitra_Click);
             // 
             // label14
             // 
             this.label14.AutoSize = true;
-            this.label14.Font = new System.Drawing.Font("Segoe UI Light", 9.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label14.Location = new System.Drawing.Point(16, 73);
+            this.label14.BackColor = System.Drawing.Color.Teal;
+            this.label14.Font = new System.Drawing.Font("Cambria", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label14.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.label14.Location = new System.Drawing.Point(7, 0);
             this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(172, 17);
-            this.label14.TabIndex = 14;
-            this.label14.Text = "*) Setiap Ekspresi min. 5 posisi";
-            // 
-            // btnStart
-            // 
-            this.btnStart.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnStart.Enabled = false;
-            this.btnStart.Font = new System.Drawing.Font("Cambria", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnStart.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnStart.ImageIndex = 2;
-            this.btnStart.ImageList = this.imageList1;
-            this.btnStart.Location = new System.Drawing.Point(260, 44);
-            this.btnStart.Name = "btnStart";
-            this.btnStart.Size = new System.Drawing.Size(94, 34);
-            this.btnStart.TabIndex = 11;
-            this.btnStart.Text = "Mulai";
-            this.btnStart.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnStart.UseVisualStyleBackColor = true;
-            this.btnStart.Click += new System.EventHandler(this.btnStart_Click);
+            this.label14.Size = new System.Drawing.Size(122, 19);
+            this.label14.TabIndex = 20;
+            this.label14.Text = "Identifikasi Citra";
             // 
             // label13
             // 
             this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(15, 23);
+            this.label13.Font = new System.Drawing.Font("Cambria", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label13.Location = new System.Drawing.Point(7, 23);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(124, 19);
             this.label13.TabIndex = 8;
             this.label13.Text = "Pilih Ekspresimu";
             // 
+            // cbOutput
+            // 
+            this.cbOutput.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.cbOutput.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbOutput.FormattingEnabled = true;
+            this.cbOutput.Location = new System.Drawing.Point(11, 48);
+            this.cbOutput.Name = "cbOutput";
+            this.cbOutput.Size = new System.Drawing.Size(200, 29);
+            this.cbOutput.TabIndex = 15;
+            this.cbOutput.SelectedIndexChanged += new System.EventHandler(this.cbOutput_SelectedIndexChanged);
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.txtF6);
+            this.groupBox2.Controls.Add(this.txtF5);
+            this.groupBox2.Controls.Add(this.txtF4);
+            this.groupBox2.Controls.Add(this.txtF3);
+            this.groupBox2.Controls.Add(this.txtF2);
+            this.groupBox2.Controls.Add(this.txtF1);
+            this.groupBox2.Controls.Add(this.label17);
+            this.groupBox2.Controls.Add(this.label18);
+            this.groupBox2.Controls.Add(this.label19);
+            this.groupBox2.Controls.Add(this.label20);
+            this.groupBox2.Controls.Add(this.label21);
+            this.groupBox2.Controls.Add(this.label22);
+            this.groupBox2.Controls.Add(this.label23);
+            this.groupBox2.Font = new System.Drawing.Font("Cambria", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox2.Location = new System.Drawing.Point(6, 376);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(289, 158);
+            this.groupBox2.TabIndex = 24;
+            this.groupBox2.TabStop = false;
+            // 
+            // txtF6
+            // 
+            this.txtF6.Enabled = false;
+            this.txtF6.Location = new System.Drawing.Point(176, 116);
+            this.txtF6.Name = "txtF6";
+            this.txtF6.Size = new System.Drawing.Size(100, 26);
+            this.txtF6.TabIndex = 19;
+            // 
+            // txtF5
+            // 
+            this.txtF5.Enabled = false;
+            this.txtF5.Location = new System.Drawing.Point(176, 84);
+            this.txtF5.Name = "txtF5";
+            this.txtF5.Size = new System.Drawing.Size(100, 26);
+            this.txtF5.TabIndex = 18;
+            // 
+            // txtF4
+            // 
+            this.txtF4.Enabled = false;
+            this.txtF4.Location = new System.Drawing.Point(176, 49);
+            this.txtF4.Name = "txtF4";
+            this.txtF4.Size = new System.Drawing.Size(100, 26);
+            this.txtF4.TabIndex = 17;
+            // 
+            // txtF3
+            // 
+            this.txtF3.Enabled = false;
+            this.txtF3.Location = new System.Drawing.Point(37, 116);
+            this.txtF3.Name = "txtF3";
+            this.txtF3.Size = new System.Drawing.Size(100, 26);
+            this.txtF3.TabIndex = 16;
+            // 
+            // txtF2
+            // 
+            this.txtF2.Enabled = false;
+            this.txtF2.Location = new System.Drawing.Point(37, 84);
+            this.txtF2.Name = "txtF2";
+            this.txtF2.Size = new System.Drawing.Size(100, 26);
+            this.txtF2.TabIndex = 15;
+            // 
+            // txtF1
+            // 
+            this.txtF1.Enabled = false;
+            this.txtF1.Location = new System.Drawing.Point(37, 51);
+            this.txtF1.Name = "txtF1";
+            this.txtF1.Size = new System.Drawing.Size(100, 26);
+            this.txtF1.TabIndex = 14;
+            // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.Location = new System.Drawing.Point(143, 119);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(27, 19);
+            this.label17.TabIndex = 13;
+            this.label17.Text = "F6";
+            // 
+            // label18
+            // 
+            this.label18.AutoSize = true;
+            this.label18.Location = new System.Drawing.Point(143, 84);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(27, 19);
+            this.label18.TabIndex = 12;
+            this.label18.Text = "F6";
+            // 
+            // label19
+            // 
+            this.label19.AutoSize = true;
+            this.label19.Location = new System.Drawing.Point(143, 49);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(27, 19);
+            this.label19.TabIndex = 11;
+            this.label19.Text = "F4";
+            // 
+            // label20
+            // 
+            this.label20.AutoSize = true;
+            this.label20.Location = new System.Drawing.Point(10, 119);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(27, 19);
+            this.label20.TabIndex = 10;
+            this.label20.Text = "F3";
+            // 
+            // label21
+            // 
+            this.label21.AutoSize = true;
+            this.label21.Location = new System.Drawing.Point(10, 84);
+            this.label21.Name = "label21";
+            this.label21.Size = new System.Drawing.Size(27, 19);
+            this.label21.TabIndex = 9;
+            this.label21.Text = "F2";
+            // 
+            // label22
+            // 
+            this.label22.AutoSize = true;
+            this.label22.Location = new System.Drawing.Point(10, 49);
+            this.label22.Name = "label22";
+            this.label22.Size = new System.Drawing.Size(27, 19);
+            this.label22.TabIndex = 8;
+            this.label22.Text = "F1";
+            // 
+            // label23
+            // 
+            this.label23.AutoSize = true;
+            this.label23.BackColor = System.Drawing.Color.Teal;
+            this.label23.Font = new System.Drawing.Font("Cambria", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label23.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.label23.Location = new System.Drawing.Point(6, 3);
+            this.label23.Name = "label23";
+            this.label23.Size = new System.Drawing.Size(78, 19);
+            this.label23.TabIndex = 7;
+            this.label23.Text = "Nilai Fitur";
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.BackColor = System.Drawing.Color.Teal;
+            this.label16.Font = new System.Drawing.Font("Cambria", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label16.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label16.Location = new System.Drawing.Point(11, 34);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(109, 19);
+            this.label16.TabIndex = 23;
+            this.label16.Text = "Pratinjau Citra";
+            // 
             // PanelCapture
             // 
             this.PanelCapture.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.PanelCapture.Controls.Add(this.btnCapture);
+            this.PanelCapture.Controls.Add(this.btnStart);
             this.PanelCapture.Controls.Add(this.PreviewImage);
-            this.PanelCapture.Location = new System.Drawing.Point(19, 98);
+            this.PanelCapture.Location = new System.Drawing.Point(4, 42);
             this.PanelCapture.Name = "PanelCapture";
-            this.PanelCapture.Size = new System.Drawing.Size(439, 505);
+            this.PanelCapture.Size = new System.Drawing.Size(526, 327);
             this.PanelCapture.TabIndex = 10;
             // 
-            // btnCapture
+            // btnStart
             // 
-            this.btnCapture.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnCapture.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCapture.ImageIndex = 4;
-            this.btnCapture.ImageList = this.imageList1;
-            this.btnCapture.Location = new System.Drawing.Point(140, 455);
-            this.btnCapture.Name = "btnCapture";
-            this.btnCapture.Size = new System.Drawing.Size(180, 45);
-            this.btnCapture.TabIndex = 12;
-            this.btnCapture.Text = "Capture";
-            this.btnCapture.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnCapture.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnCapture.UseVisualStyleBackColor = true;
-            this.btnCapture.Click += new System.EventHandler(this.btnCapture_Click);
+            this.btnStart.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnStart.ImageIndex = 2;
+            this.btnStart.ImageList = this.imageList1;
+            this.btnStart.Location = new System.Drawing.Point(196, 271);
+            this.btnStart.Name = "btnStart";
+            this.btnStart.Size = new System.Drawing.Size(129, 53);
+            this.btnStart.TabIndex = 3;
+            this.btnStart.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnStart.UseVisualStyleBackColor = true;
+            this.btnStart.Click += new System.EventHandler(this.btnStart_Click);
             // 
             // PreviewImage
             // 
             this.PreviewImage.Dock = System.Windows.Forms.DockStyle.Fill;
             this.PreviewImage.Location = new System.Drawing.Point(0, 0);
             this.PreviewImage.Name = "PreviewImage";
-            this.PreviewImage.Size = new System.Drawing.Size(437, 503);
+            this.PreviewImage.Size = new System.Drawing.Size(524, 325);
             this.PreviewImage.TabIndex = 2;
             this.PreviewImage.TabStop = false;
             // 
@@ -468,6 +687,7 @@
             // 
             this.label6.AutoSize = true;
             this.label6.BackColor = System.Drawing.Color.Teal;
+            this.label6.Font = new System.Drawing.Font("Cambria", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.label6.Location = new System.Drawing.Point(0, 0);
             this.label6.Name = "label6";
@@ -475,42 +695,57 @@
             this.label6.TabIndex = 9;
             this.label6.Text = "Perkenalkan Ekspresimu:";
             // 
-            // cbOutput
-            // 
-            this.cbOutput.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbOutput.FormattingEnabled = true;
-            this.cbOutput.Location = new System.Drawing.Point(20, 46);
-            this.cbOutput.Name = "cbOutput";
-            this.cbOutput.Size = new System.Drawing.Size(223, 29);
-            this.cbOutput.TabIndex = 15;
-            this.cbOutput.SelectedIndexChanged += new System.EventHandler(this.cbOutput_SelectedIndexChanged);
-            // 
             // notifyIcon1
             // 
             this.notifyIcon1.Icon = ((System.Drawing.Icon)(resources.GetObject("notifyIcon1.Icon")));
             this.notifyIcon1.Text = "Daftar Akun My Assistant";
             this.notifyIcon1.Visible = true;
             // 
-            // imageList1
+            // label25
             // 
-            this.imageList1.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList1.ImageStream")));
-            this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
-            this.imageList1.Images.SetKeyName(0, "Add File-48.png");
-            this.imageList1.Images.SetKeyName(1, "Add User Male-48.png");
-            this.imageList1.Images.SetKeyName(2, "Next-48.png");
-            this.imageList1.Images.SetKeyName(3, "Stop-48.png");
-            this.imageList1.Images.SetKeyName(4, "Camera-48.png");
+            this.label25.AutoSize = true;
+            this.label25.Location = new System.Drawing.Point(17, 578);
+            this.label25.Name = "label25";
+            this.label25.Size = new System.Drawing.Size(56, 19);
+            this.label25.TabIndex = 26;
+            this.label25.Text = "label25";
+            // 
+            // txtNumRecord
+            // 
+            this.txtNumRecord.AutoSize = true;
+            this.txtNumRecord.Font = new System.Drawing.Font("Cambria", 11.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtNumRecord.Location = new System.Drawing.Point(18, 561);
+            this.txtNumRecord.Name = "txtNumRecord";
+            this.txtNumRecord.Size = new System.Drawing.Size(324, 17);
+            this.txtNumRecord.TabIndex = 22;
+            this.txtNumRecord.Text = "0 Citra Sedih tersimpan , 0 Citra Senang Tersimpan";
+            // 
+            // btnExit
+            // 
+            this.btnExit.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnExit.FlatAppearance.BorderSize = 0;
+            this.btnExit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnExit.Location = new System.Drawing.Point(909, 10);
+            this.btnExit.Name = "btnExit";
+            this.btnExit.Size = new System.Drawing.Size(32, 32);
+            this.btnExit.TabIndex = 20;
+            this.btnExit.Text = "X";
+            this.btnExit.UseVisualStyleBackColor = true;
+            this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
             // 
             // NewUserView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 19F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(918, 727);
+            this.ClientSize = new System.Drawing.Size(976, 727);
+            this.ControlBox = false;
+            this.Controls.Add(this.btnExit);
             this.Controls.Add(this.panelExkpresi);
             this.Controls.Add(this.panelFavorite);
             this.Controls.Add(this.PanelUser);
             this.Controls.Add(this.label15);
             this.Font = new System.Drawing.Font("Cambria", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(4);
             this.MaximizeBox = false;
@@ -529,6 +764,10 @@
             this.panelFavorite.PerformLayout();
             this.panelExkpresi.ResumeLayout(false);
             this.panelExkpresi.PerformLayout();
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
+            this.groupBox2.ResumeLayout(false);
+            this.groupBox2.PerformLayout();
             this.PanelCapture.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.PreviewImage)).EndInit();
             this.ResumeLayout(false);
@@ -566,15 +805,35 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Panel panelExkpresi;
-        private System.Windows.Forms.Label label14;
-        private System.Windows.Forms.Button btnStart;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Panel PanelCapture;
-        private System.Windows.Forms.Button btnCapture;
         private Emgu.CV.UI.ImageBox PreviewImage;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.ComboBox cbOutput;
         private System.Windows.Forms.NotifyIcon notifyIcon1;
         private System.Windows.Forms.ImageList imageList1;
+        private System.Windows.Forms.Label label16;
+        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.Label label17;
+        private System.Windows.Forms.Label label18;
+        private System.Windows.Forms.Label label19;
+        private System.Windows.Forms.Label label20;
+        private System.Windows.Forms.Label label21;
+        private System.Windows.Forms.Label label22;
+        private System.Windows.Forms.Label label23;
+        private System.Windows.Forms.TextBox txtF6;
+        private System.Windows.Forms.TextBox txtF5;
+        private System.Windows.Forms.TextBox txtF4;
+        private System.Windows.Forms.TextBox txtF3;
+        private System.Windows.Forms.TextBox txtF2;
+        private System.Windows.Forms.TextBox txtF1;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.Button btnSaveCitra;
+        private System.Windows.Forms.Label label24;
+        private System.Windows.Forms.Button btnStart;
+        private System.Windows.Forms.Label label25;
+        private System.Windows.Forms.Label txtNumRecord;
+        private System.Windows.Forms.Button btnExit;
     }
 }

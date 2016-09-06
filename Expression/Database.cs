@@ -2,6 +2,7 @@
 using System;
 using System.Data;
 using System.Windows.Forms;
+using System.Collections.Generic;
 namespace Expression
 {
     public class Database
@@ -806,6 +807,36 @@ namespace Expression
         }
         #endregion
 
+        #region GetMaxValueByUser
+        public void getMaxValues(out double[] maxF,string idUser)
+        {
+            maxF = new double[6];
+            try
+            {
+                this.CloseConnection();
+                this.OpenConnection();
+                string query = "SELECT MAX(F1)AS 'F1',MAX(F2)AS 'F2',MAX(F3)AS 'F3',MAX(F4)AS 'F4',"+
+                    "MAX(F5)AS 'F5',MAX(F6)AS 'F6' FROM `emotion`.`training` WHERE `training`.`idUser`='"+idUser+"';";
+                MySqlCommand cmd = new MySqlCommand(query, connection);
+                MySqlDataReader reader = cmd.ExecuteReader();
+                reader.Read();
+                maxF[0] = Convert.ToDouble(reader.GetString("F1"));
+                maxF[1] = Convert.ToDouble(reader.GetString("F2"));
+                maxF[2] = Convert.ToDouble(reader.GetString("F3"));
+                maxF[3] = Convert.ToDouble(reader.GetString("F4"));
+                maxF[4] = Convert.ToDouble(reader.GetString("F5"));
+                maxF[5] = Convert.ToDouble(reader.GetString("F6"));
+                reader.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+
+            this.CloseConnection();
+        }
+        #endregion
+
         #region SAVE USER
         public bool saveUser(string idUser, string fullName, string pass)
         {
@@ -855,7 +886,6 @@ namespace Expression
 
         }
         #endregion
-
 
         #region CHECK USER ID
         public bool checkId(string key)
@@ -1029,7 +1059,6 @@ namespace Expression
         }
         #endregion
 
-
         #region Update User
         public bool updateUserData(string fullName, string idUser)
         {
@@ -1104,22 +1133,22 @@ namespace Expression
         #endregion
 
         #region Save Data Testing
-        public void saveTesting(int idOutput, double f1, double f2, double f3, double f4, double f5, double f6, string idUser, double sad, double happy, string citra = null)
+        public void saveTesting(int idOutput, double f1, double f2, double f3, double f4, double f5, double f6, string idUser, double sad, double happy,string timelog, string citra = null)
         {
             this.CloseConnection();
             string query = null;
 
             if (citra == null)
             {
-                query = "INSERT INTO `emotion`.`testing` (`idOutput`, `F1`, `F2`, `F3`, `F4`, `F5`, `F6`, `idUser`, `sad`, `happy`)" +
+                query = "INSERT INTO `emotion`.`testing` (`idOutput`, `F1`, `F2`, `F3`, `F4`, `F5`, `F6`, `idUser`, `sad`, `happy`,`timelog`)" +
                 " VALUES ('" + idOutput + "', '" + f1 + "', '" + f2 + "', '" + f3 + "'," +
-                " '" + f4 + "', '" + f5 + "', '" + f6 + "', '" + idUser + "', '" + sad + "', '" + happy + "');";
+                " '" + f4 + "', '" + f5 + "', '" + f6 + "', '" + idUser + "', '" + sad + "', '" + happy + "','"+ timelog + "');";
             }
             else
             {
-                query = "INSERT INTO `emotion`.`testing` (`idOutput`, `F1`, `F2`, `F3`, `F4`, `F5`, `F6`, `idUser`, `sad`, `happy`,`citra`)" +
+                query = "INSERT INTO `emotion`.`testing` (`idOutput`, `F1`, `F2`, `F3`, `F4`, `F5`, `F6`, `idUser`, `sad`, `happy`,`citra`,`timelog`)" +
                 " VALUES ('" + idOutput + "', '" + f1 + "', '" + f2 + "', '" + f3 + "', '" + f4 + "', '" + f5 + "', '" + f6 + "'," +
-                " '" + idUser + "', '" + sad + "', '" + happy + "','" + citra + "');";
+                " '" + idUser + "', '" + sad + "', '" + happy + "','" + citra + "','"+ timelog + "');";
             }
 
 
@@ -1185,5 +1214,80 @@ namespace Expression
             this.CloseConnection();
         }
         #endregion
+
+        #region GetCount Ekspresi
+        public void getCountExpresiLogUser(ref Dictionary<string,int> countSad, ref Dictionary<string, int> countHappy,
+            string IdUser,string Today)
+        {
+            countSad = new Dictionary<string, int>();
+            countHappy = new Dictionary<string, int>();
+
+            this.CloseConnection();
+            string query = "SELECT `output`.`Output` AS 'Ekpresi',  COUNT(output.`Output`) AS 'jumlah',DATE(`testing`.`timelog`) "+
+                "AS 'Tanggal',TIME(`testing`.`timelog`) AS 'Waktu' FROM output, testing WHERE output.`idOutput`= testing.`idOutput`"+
+                "AND `testing`.`idUser`= '"+IdUser+ "'  AND DATE(`testing`.`timelog`)=CURDATE() GROUP BY testing.`timelog` , `output`.`Output`; ";
+
+            if (this.OpenConnection()==true)
+            {
+                MySqlCommand cmd = new MySqlCommand(query, connection);
+                MySqlDataReader reader = cmd.ExecuteReader();
+                while (reader.Read())
+                {
+                    string ekspresi = reader.GetString("Ekpresi");
+                    if (ekspresi.Equals("Sedih"))
+                    {
+                        countSad.Add(reader.GetString("Waktu"),Convert.ToInt32(reader.GetString("jumlah")));
+                    }
+                    else
+                    {
+                        countHappy.Add(reader.GetString("Waktu"), Convert.ToInt32(reader.GetString("jumlah")));
+                    }
+                }
+            }
+            this.CloseConnection();
+        }
+        #endregion
+
+        #region PopulateDataEkspresi
+        public void PopulateDataEkspresiLog(ref DataGridView tableHistory,string UserId) {
+            this.CloseConnection();
+            string query = "SELECT `testing`.`F1`,`testing`.`F2`,`testing`.`F3`,`testing`.`F4`,`testing`.`F5`,`testing`.`F6`,"+
+                "`output`.`Output` AS 'Ekpresi',DATE(`testing`.`timelog`) AS 'Tanggal',TIME(`testing`.`timelog`) AS 'Waktu'"+
+                "FROM output, testing WHERE output.`idOutput`= testing.`idOutput` AND `testing`.`idUser`= '"+UserId+"'"+
+                "GROUP BY testing.`timelog` , `output`.`Output`; ";
+            if (this.OpenConnection()==true)
+            {
+                MySqlCommand cmd = new MySqlCommand(query, connection);
+                DataSet ds1 = new DataSet();
+                MySqlDataAdapter sda = new MySqlDataAdapter(cmd);
+                sda.Fill(ds1, "history");
+                tableHistory.DataSource = ds1;
+                tableHistory.DataMember = "history";
+
+                tableHistory.Columns[0].HeaderText = "F1";
+                tableHistory.Columns[1].HeaderText = "F2";
+                tableHistory.Columns[2].HeaderText = "F3";
+                tableHistory.Columns[3].HeaderText = "F4";
+                tableHistory.Columns[4].HeaderText = "F5";
+                tableHistory.Columns[5].HeaderText = "F6";
+                tableHistory.Columns[6].HeaderText = "Ekpresi";
+                tableHistory.Columns[7].HeaderText = "Tanggal";
+                tableHistory.Columns[8].HeaderText = "Waktu";
+
+                tableHistory.Columns[0].Width = 40;
+                tableHistory.Columns[1].Width = 40;
+                tableHistory.Columns[2].Width = 40;
+                tableHistory.Columns[3].Width = 40;
+                tableHistory.Columns[4].Width = 40;
+                tableHistory.Columns[5].Width = 40;
+                tableHistory.Columns[6].Width = 90;
+                tableHistory.Columns[7].Width = 80;
+                tableHistory.Columns[8].Width = 80;
+
+            }
+            this.CloseConnection();
+        }
+        #endregion
+
     }
 }

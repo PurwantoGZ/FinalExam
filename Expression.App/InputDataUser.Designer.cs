@@ -33,8 +33,10 @@
             this.label15 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.cbOutput = new System.Windows.Forms.ComboBox();
             this.cbUserId = new System.Windows.Forms.ComboBox();
             this.label12 = new System.Windows.Forms.Label();
+            this.btnSaveData = new System.Windows.Forms.Button();
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
             this.label10 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
@@ -53,22 +55,20 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.PreviewImage = new Emgu.CV.UI.ImageBox();
             this.label13 = new System.Windows.Forms.Label();
             this.CamList = new System.Windows.Forms.ComboBox();
-            this.cbOutput = new System.Windows.Forms.ComboBox();
             this.panel2 = new System.Windows.Forms.Panel();
             this.label11 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.btnStart = new System.Windows.Forms.Button();
             this.btnOpenImage = new System.Windows.Forms.Button();
-            this.btnSaveData = new System.Windows.Forms.Button();
-            this.PreviewImage = new Emgu.CV.UI.ImageBox();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.PreviewImage)).BeginInit();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.PreviewImage)).BeginInit();
             this.SuspendLayout();
             // 
             // label15
@@ -109,6 +109,15 @@
             this.groupBox1.TabIndex = 21;
             this.groupBox1.TabStop = false;
             // 
+            // cbOutput
+            // 
+            this.cbOutput.FormattingEnabled = true;
+            this.cbOutput.Location = new System.Drawing.Point(22, 108);
+            this.cbOutput.Name = "cbOutput";
+            this.cbOutput.Size = new System.Drawing.Size(264, 29);
+            this.cbOutput.TabIndex = 26;
+            this.cbOutput.SelectedIndexChanged += new System.EventHandler(this.cbOutput_SelectedIndexChanged);
+            // 
             // cbUserId
             // 
             this.cbUserId.FormattingEnabled = true;
@@ -127,6 +136,21 @@
             this.label12.Size = new System.Drawing.Size(113, 19);
             this.label12.TabIndex = 24;
             this.label12.Text = "Nama Lengkap:";
+            // 
+            // btnSaveData
+            // 
+            this.btnSaveData.Enabled = false;
+            this.btnSaveData.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnSaveData.ImageKey = "Image File-48.png";
+            this.btnSaveData.ImageList = this.imageList1;
+            this.btnSaveData.Location = new System.Drawing.Point(151, 159);
+            this.btnSaveData.Name = "btnSaveData";
+            this.btnSaveData.Size = new System.Drawing.Size(135, 41);
+            this.btnSaveData.TabIndex = 23;
+            this.btnSaveData.Text = "Simpan Data";
+            this.btnSaveData.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnSaveData.UseVisualStyleBackColor = true;
+            this.btnSaveData.Click += new System.EventHandler(this.btnSaveData_Click);
             // 
             // imageList1
             // 
@@ -312,6 +336,15 @@
             this.panel1.Size = new System.Drawing.Size(490, 327);
             this.panel1.TabIndex = 18;
             // 
+            // PreviewImage
+            // 
+            this.PreviewImage.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.PreviewImage.Location = new System.Drawing.Point(0, 0);
+            this.PreviewImage.Name = "PreviewImage";
+            this.PreviewImage.Size = new System.Drawing.Size(488, 325);
+            this.PreviewImage.TabIndex = 3;
+            this.PreviewImage.TabStop = false;
+            // 
             // label13
             // 
             this.label13.AutoSize = true;
@@ -329,15 +362,6 @@
             this.CamList.Name = "CamList";
             this.CamList.Size = new System.Drawing.Size(136, 27);
             this.CamList.TabIndex = 25;
-            // 
-            // cbOutput
-            // 
-            this.cbOutput.FormattingEnabled = true;
-            this.cbOutput.Location = new System.Drawing.Point(22, 108);
-            this.cbOutput.Name = "cbOutput";
-            this.cbOutput.Size = new System.Drawing.Size(264, 29);
-            this.cbOutput.TabIndex = 26;
-            this.cbOutput.SelectedIndexChanged += new System.EventHandler(this.cbOutput_SelectedIndexChanged);
             // 
             // panel2
             // 
@@ -361,7 +385,7 @@
             // 
             // pictureBox1
             // 
-            this.pictureBox1.BackgroundImage = global::Expression.App.Properties.Resources.Login_As_User_961;
+            this.pictureBox1.BackgroundImage = global::Expression.App.Properties.Resources.add_image_481;
             this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Left;
             this.pictureBox1.Location = new System.Drawing.Point(0, 0);
@@ -397,35 +421,11 @@
             this.btnOpenImage.UseVisualStyleBackColor = true;
             this.btnOpenImage.Click += new System.EventHandler(this.btnOpenImage_Click);
             // 
-            // btnSaveData
-            // 
-            this.btnSaveData.Enabled = false;
-            this.btnSaveData.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnSaveData.ImageKey = "Image File-48.png";
-            this.btnSaveData.ImageList = this.imageList1;
-            this.btnSaveData.Location = new System.Drawing.Point(151, 159);
-            this.btnSaveData.Name = "btnSaveData";
-            this.btnSaveData.Size = new System.Drawing.Size(135, 41);
-            this.btnSaveData.TabIndex = 23;
-            this.btnSaveData.Text = "Simpan Data";
-            this.btnSaveData.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnSaveData.UseVisualStyleBackColor = true;
-            this.btnSaveData.Click += new System.EventHandler(this.btnSaveData_Click);
-            // 
-            // PreviewImage
-            // 
-            this.PreviewImage.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.PreviewImage.Location = new System.Drawing.Point(0, 0);
-            this.PreviewImage.Name = "PreviewImage";
-            this.PreviewImage.Size = new System.Drawing.Size(488, 325);
-            this.PreviewImage.TabIndex = 3;
-            this.PreviewImage.TabStop = false;
-            // 
             // InputDataUser
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 19F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(860, 476);
+            this.ClientSize = new System.Drawing.Size(860, 477);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.btnStart);
             this.Controls.Add(this.CamList);
@@ -450,10 +450,10 @@
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             this.panel1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.PreviewImage)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.PreviewImage)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

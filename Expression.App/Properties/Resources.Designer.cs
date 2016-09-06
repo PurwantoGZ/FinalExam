@@ -73,6 +73,16 @@ namespace Expression.App.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap add_image_481 {
+            get {
+                object obj = ResourceManager.GetObject("add_image-481", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap add_user_24 {
             get {
                 object obj = ResourceManager.GetObject("add_user-24", resourceCulture);
@@ -323,9 +333,29 @@ namespace Expression.App.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Facial_Recognition_Scan_484 {
+            get {
+                object obj = ResourceManager.GetObject("Facial Recognition Scan-484", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Help_48 {
             get {
                 object obj = ResourceManager.GetObject("Help-48", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Help_48__1_ {
+            get {
+                object obj = ResourceManager.GetObject("Help-48 (1)", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -496,6 +526,26 @@ namespace Expression.App.Properties {
         internal static System.Drawing.Bitmap Settings_48 {
             get {
                 object obj = ResourceManager.GetObject("Settings-48", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap statistics_48 {
+            get {
+                object obj = ResourceManager.GetObject("statistics-48", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap statistics_481 {
+            get {
+                object obj = ResourceManager.GetObject("statistics-481", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

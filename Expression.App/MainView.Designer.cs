@@ -37,6 +37,7 @@
             this.ProcessMenu = new System.Windows.Forms.ToolStripMenuItem();
             this.toolTraining = new System.Windows.Forms.ToolStripMenuItem();
             this.toolTesting = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolIdentification = new System.Windows.Forms.ToolStripMenuItem();
             this.toolSetting = new System.Windows.Forms.ToolStripMenuItem();
             this.toolCamera = new System.Windows.Forms.ToolStripMenuItem();
             this.toolJST = new System.Windows.Forms.ToolStripMenuItem();
@@ -91,7 +92,7 @@
             // 
             this.toolUserData.Image = global::Expression.App.Properties.Resources.manager_48;
             this.toolUserData.Name = "toolUserData";
-            this.toolUserData.Size = new System.Drawing.Size(156, 22);
+            this.toolUserData.Size = new System.Drawing.Size(160, 22);
             this.toolUserData.Text = "Data User";
             this.toolUserData.Click += new System.EventHandler(this.toolUserData_Click);
             // 
@@ -99,14 +100,15 @@
             // 
             this.toolHasilTraining.Image = global::Expression.App.Properties.Resources.Combo_Chart_48;
             this.toolHasilTraining.Name = "toolHasilTraining";
-            this.toolHasilTraining.Size = new System.Drawing.Size(156, 22);
-            this.toolHasilTraining.Text = "Hasil Pengujian";
+            this.toolHasilTraining.Size = new System.Drawing.Size(160, 22);
+            this.toolHasilTraining.Text = "Hasil Identifikasi";
             // 
             // ProcessMenu
             // 
             this.ProcessMenu.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolTraining,
-            this.toolTesting});
+            this.toolTesting,
+            this.toolIdentification});
             this.ProcessMenu.Name = "ProcessMenu";
             this.ProcessMenu.Size = new System.Drawing.Size(53, 19);
             this.ProcessMenu.Text = "&Proses";
@@ -126,6 +128,13 @@
             this.toolTesting.Size = new System.Drawing.Size(157, 22);
             this.toolTesting.Text = "Pengujian Data ";
             this.toolTesting.Click += new System.EventHandler(this.toolTesting_Click);
+            // 
+            // toolIdentification
+            // 
+            this.toolIdentification.Name = "toolIdentification";
+            this.toolIdentification.Size = new System.Drawing.Size(157, 22);
+            this.toolIdentification.Text = "Identifikasi ";
+            this.toolIdentification.Click += new System.EventHandler(this.toolIdentification_Click);
             // 
             // toolSetting
             // 
@@ -359,6 +368,7 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.PictureBox IconBar;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.ToolStripMenuItem toolIdentification;
     }
 }
 

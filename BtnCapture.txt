@@ -1,0 +1,38 @@
+if (_capture != null)
+            {
+
+                if (numCapture <= 5)
+                {
+                    _capture.Pause(); ComputeFeature();
+                    if (db.saveTrainingData(idUser, idOutput, F1, F2, F3, F4, F5, F6))
+                    {
+                        DialogResult dialogResult = MessageBox.Show("Ambil Ekspresi Lagi ?", "Berhasil, "
+                            + numCapture + " Capture.", MessageBoxButtons.YesNo,MessageBoxIcon.Question);
+                        if (dialogResult == DialogResult.Yes)
+                        {
+                            _capture.Start();
+                            numCapture++;
+                        }
+                        else if (dialogResult == DialogResult.No)
+                        {
+                            _capture.Dispose();
+                            btnStart.Text = "Mulai"; btnStart.ImageIndex = 2;
+                        }
+
+                    }
+                    else
+                    {
+                        notifyIcon1.BalloonTipIcon = ToolTipIcon.Error;
+                        notifyIcon1.BalloonTipTitle = "Informasi";
+                        notifyIcon1.BalloonTipText = "User ID gagal didaftarkan";
+                        notifyIcon1.ShowBalloonTip(100);
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Anda sudah memasukkan 5 kali, \nSilahkan tutup form ini\n kemudian login", "Maksimal Capture 5 kali.");
+                    _capture.Dispose();
+                    btnStart.Text = "Mulai"; btnStart.ImageIndex = 2;
+                }
+
+            }

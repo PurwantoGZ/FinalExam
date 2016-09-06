@@ -58,3 +58,5 @@ E:\TugasAkhir\Expression.App\bin\x64\Debug\NotificationWindow.pdb
 E:\TugasAkhir\Expression.App\obj\x64\Debug\Expression.App.AccountSettingView.resources
 E:\TugasAkhir\Expression.App\obj\x64\Debug\Expression.App.SplashScreenView.resources
 E:\TugasAkhir\Expression.App\obj\x64\Debug\Expression.App.AboutView.resources
+E:\TugasAkhir\Expression.App\obj\x64\Debug\Expression.App.HistoryView.resources
+E:\TugasAkhir\Expression.App\obj\x64\Debug\Expression.App.IdentifikasiView.resources

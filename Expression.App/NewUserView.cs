@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using MetroFramework.Forms;
+using DirectShowLib;
 using Emgu.CV;
 using Emgu.CV.Structure;
 using Emgu.CV.CvEnum;
@@ -24,12 +25,21 @@ namespace Expression.App
         int[] idFavorite = new int[6];
         int[] priority = new int[6];
         public int numCapture = 0;
+        int CameraDevice = 0;
+        Video_Device[] WebCams;
+
+        ComboBox CamList=new ComboBox();
         string idOutput = null;
         string F1, F2, F3, F4, F5, F6;
+        int numSad = 0;
+        int numHappy = 0;
+
         #region Capture Properties
         Mat frame = new Mat();
         private Capture _capture = null;
+        private bool _captureInProgress;
         #endregion
+
         #region PROPERTIES FEATURES
         int x1 = 0, y1 = 0, x2 = 0, y2 = 0;
         int[] mataX1 = new int[3];
@@ -43,9 +53,24 @@ namespace Expression.App
         int[] alisY2 = new int[3];
         double f1 = 0, f2 = 0, f3 = 0, f4 = 0, f5 = 0, f6 = 0;
         #endregion
+
         public NewUserView()
         {
             InitializeComponent();
+
+            DsDevice[] _SystemCameras = DsDevice.GetDevicesOfCat(FilterCategory.VideoInputDevice);
+            WebCams = new Video_Device[_SystemCameras.Length];
+
+            for (int i = 0; i < _SystemCameras.Length; i++)
+            {
+                WebCams[i] = new Video_Device(i, _SystemCameras[i].Name, _SystemCameras[i].ClassID);
+                //CamList.Items.Add(WebCams[i].ToString());
+            }
+            //if (CamList.Items.Count>0)
+            //{
+            //    CamList.SelectedIndex = 0;
+            //}
+
             panelFavorite.Enabled = false;
             PanelCapture.Enabled = false;
             panelExkpresi.Enabled = false;
@@ -54,21 +79,111 @@ namespace Expression.App
 
         protected override void OnClosing(CancelEventArgs e)
         {
+            
+            //try
+            //{
+            //    if (_capture != null)
+            //    {
+            //        _capture.Dispose();
+            //    }
+            //    if (numCapture == 1 || numCapture == 0)
+            //    {
+            //        MessageBox.Show("Anda belum mengidentifikasi ekspresi anda. \n Silahkan identifisikan dahulu :)", "Konfirmasi");
+            //    }
+            //    else
+            //    {
+            //        this.Hide();
+            //    }
+            //}
+            //catch (Exception ex)
+            //{
+            //    //MessageBox.Show(ex.ToString());
+            //}
+        }
+
+        private void btnStart_Click(object sender, EventArgs e)
+        {
+            if (_capture!=null)
+            {
+                if (_captureInProgress)
+                {
+                    //btnStart.Text = "Mulai";
+                    btnStart.ImageIndex = 2;
+                    _capture.Pause();
+                    ComputeFeature();
+                    btnSaveCitra.Enabled = true;
+                    _captureInProgress = false;
+                }else
+                {
+                   // SetupCapture(0);
+                    //btnStart.Text = "Berhenti";
+                    btnStart.ImageIndex = 3;
+                    btnSaveCitra.Enabled = false;
+                    _capture.Start();
+                    _captureInProgress = true;
+                }
+            }else
+            {
+                SetupCapture(0);
+                btnStart_Click(null, null);
+            }
+        }
+
+        private void btnSaveCitra_Click(object sender, EventArgs e)
+        {
+            string message = "Simpan Citra dengan Ekspresi " + cbOutput.Text;
+            DialogResult dlgResult = MessageBox.Show(message, "Konfirmasi Simpan Data ", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (dlgResult==DialogResult.Yes)
+            {
+                try
+                {
+                    string pesan = (db.saveTrainingData(idUser, idOutput, F1, F2, F3, F4, F5, F6)) ? "Data Sukses Disimpan" : "Gagal Menyimpan Cita";
+                    if (cbOutput.Text.Equals("Sedih"))
+                    {
+                        numSad++;
+                    }
+                    else
+                    {
+                        numHappy++;
+                    }
+                    string record = numSad.ToString() + " Citra Sedih tersimpan , " + numHappy.ToString() + " Citra Senang Tersimpan";
+                    notifyIcon1.BalloonTipIcon = ToolTipIcon.Info;
+                    notifyIcon1.BalloonTipTitle = "Informasi";
+                    notifyIcon1.BalloonTipText = pesan+"\n"+record;
+                    notifyIcon1.ShowBalloonTip(100);
+                }
+                catch (Exception ex)
+                {
+                }
+                btnSaveCitra.Enabled = false;
+            }else
+            {
+                btnSaveCitra.Enabled = true;
+            }
+        }
+
+        private void btnExit_Click(object sender, EventArgs e)
+        {
             try
             {
-
-                if (numCapture == 1 || numCapture == 0)
+                if ((numSad <= 5) || (numHappy <= 5))
                 {
-                    MessageBox.Show("Anda belum mengidentifikasi ekspresi anda. \n Silahkan identifisikan dahulu :)", "Konfirmasi");
+                    notifyIcon1.BalloonTipIcon = ToolTipIcon.Info;
+                    notifyIcon1.BalloonTipTitle = "Informasi";
+                    notifyIcon1.BalloonTipText = "Data Ekspresi anda masih kurang !,\n Silahkan tambahkan lagi.";
+                    notifyIcon1.ShowBalloonTip(100);
                 }
                 else
                 {
+                    if (_capture != null)
+                    {
+                        _capture.Dispose();
+                    }
                     this.Hide();
                 }
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.ToString());
             }
         }
 
@@ -90,17 +205,18 @@ namespace Expression.App
             foreach (Rectangle face in faces)
                 CvInvoke.Rectangle(frame, face, new Bgr(Color.DeepSkyBlue).MCvScalar, 2);
 
-            foreach (Rectangle mouth in mouths)
-                CvInvoke.Rectangle(frame, mouth, new Bgr(Color.Aquamarine).MCvScalar, 2);
+            //foreach (Rectangle mouth in mouths)
+            //    CvInvoke.Rectangle(frame, mouth, new Bgr(Color.Aquamarine).MCvScalar, 2);
 
-            foreach (Rectangle eye in eyes)
-                CvInvoke.Rectangle(frame, eye, new Bgr(Color.GreenYellow).MCvScalar, 2);
+            //foreach (Rectangle eye in eyes)
+            //    CvInvoke.Rectangle(frame, eye, new Bgr(Color.GreenYellow).MCvScalar, 2);
             PreviewImage.Image = frame;
         }
 
         private void ProcessFrame(object sender, EventArgs arg)
         {
-            _capture.Retrieve(frame, 0); runCapture();
+            _capture.Retrieve(frame, 0);
+            runCapture();
         }
 
         private void ReleaseData()
@@ -121,6 +237,32 @@ namespace Expression.App
             F4 = f4.ToString("#.##");
             F5 = f5.ToString("#.##");
             F6 = f6.ToString("#.##");
+            txtF1.Text = F1;
+            txtF2.Text = F2;
+            txtF3.Text = F3;
+            txtF4.Text = F4;
+            txtF5.Text = F5;
+            txtF6.Text = F6;
+        }
+
+        private void SetupCapture(int Camera_Identifier)
+        {
+            CvInvoke.UseOpenCL = false;
+            //update the selected device
+            CameraDevice = Camera_Identifier;
+
+            //Dispose of Capture if it was created before
+            if (_capture != null) _capture.Dispose();
+            try
+            {
+                //Set up capture device
+                _capture = new Capture(CameraDevice);
+                _capture.ImageGrabbed += ProcessFrame;
+            }
+            catch (NullReferenceException excpt)
+            {
+                MessageBox.Show(excpt.Message);
+            }
         }
 
         private void btnSaveData_Click(object sender, EventArgs e)
@@ -133,9 +275,9 @@ namespace Expression.App
                 favoriteName[2] =txtVideo.Text;
                 favoriteName[3] =txtGambar.Text;
                 favoriteName[4] =txtBook.Text;
-                favoriteName[5] = "Pemandangan dengan warna "+txtWarna.Text;
+                favoriteName[5] =txtWarna.Text;
                 bool message = false;
-                if (btnSaveData.Text.Equals("Simpan"))
+                if (btnSaveData.Text.Equals("Simpan Data"))
                 {
                     #region Simpan
                     for (int i = 0; i < favoriteName.Length; i++)
@@ -150,7 +292,7 @@ namespace Expression.App
                         notifyIcon1.BalloonTipText = "Data telah disimpan";
                         notifyIcon1.ShowBalloonTip(100);
 
-                        btnSaveData.Text = "Ubah";
+                        btnSaveData.Text = "Ubah Data";
                         txtMusic.Clear();
                         txtMovie.Clear();
                         txtVideo.Clear();
@@ -217,48 +359,6 @@ namespace Expression.App
             }
         }
 
-        private void btnCapture_Click(object sender, EventArgs e)
-        {
-            if (_capture != null)
-            {
-
-                if (numCapture <= 5)
-                {
-                    _capture.Pause(); ComputeFeature();
-                    if (db.saveTrainingData(idUser, idOutput, F1, F2, F3, F4, F5, F6))
-                    {
-                        DialogResult dialogResult = MessageBox.Show("Ambil Ekspresi Lagi ?", "Berhasil, "
-                            + numCapture + " Capture.", MessageBoxButtons.YesNo,MessageBoxIcon.Question);
-                        if (dialogResult == DialogResult.Yes)
-                        {
-                            _capture.Start();
-                            numCapture++;
-                        }
-                        else if (dialogResult == DialogResult.No)
-                        {
-                            _capture.Dispose();
-                            btnStart.Text = "Mulai"; btnStart.ImageIndex = 2;
-                        }
-
-                    }
-                    else
-                    {
-                        notifyIcon1.BalloonTipIcon = ToolTipIcon.Error;
-                        notifyIcon1.BalloonTipTitle = "Informasi";
-                        notifyIcon1.BalloonTipText = "User ID gagal didaftarkan";
-                        notifyIcon1.ShowBalloonTip(100);
-                    }
-                }
-                else
-                {
-                    MessageBox.Show("Anda sudah memasukkan 5 kali, \nSilahkan tutup form ini\n kemudian login", "Maksimal Capture 5 kali.");
-                    _capture.Dispose();
-                    btnStart.Text = "Mulai"; btnStart.ImageIndex = 2;
-                }
-
-            }
-        }
-
         private void btnSignUp_Click(object sender, EventArgs e)
         {
             try
@@ -273,6 +373,7 @@ namespace Expression.App
                     userID.Enabled = false;
                     fullName.Enabled = false;
                     panelFavorite.Enabled = true; txtMusic.Focus();
+                    btnSignUp.Enabled = false;
                 }
                 else
                 {
@@ -280,36 +381,12 @@ namespace Expression.App
                     notifyIcon1.BalloonTipTitle = "Informasi";
                     notifyIcon1.BalloonTipText = "User ID gagal didaftarkan";
                     notifyIcon1.ShowBalloonTip(100);
+                    btnSignUp.Enabled = true;
                 }
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.ToString());
-            }
-        }
-
-        private void btnStart_Click(object sender, EventArgs e)
-        {
-            if (btnStart.Text.Equals("Mulai"))
-            {
-                CvInvoke.UseOpenCL = false;
-                try
-                {
-                    _capture = new Capture();
-                    _capture.ImageGrabbed += ProcessFrame;
-                    btnStart.Text = "Berhenti";
-                    btnStart.ImageIndex = 3;
-                    _capture.Start();
-                }
-                catch (NullReferenceException excpt)
-                {
-                    MessageBox.Show(excpt.Message);
-                }
-            }
-            else
-            {
-                _capture.Dispose();
-                btnStart.Text = "Mulai"; btnStart.ImageIndex = 2;
             }
         }
 

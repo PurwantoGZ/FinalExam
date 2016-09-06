@@ -33,6 +33,7 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.StatusBar = new System.Windows.Forms.StatusStrip();
             this.statusF1 = new System.Windows.Forms.ToolStripStatusLabel();
             this.statusF2 = new System.Windows.Forms.ToolStripStatusLabel();
@@ -46,9 +47,19 @@
             this.FaceCount = new System.Windows.Forms.ToolStripStatusLabel();
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.HomeMenu = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolHistory = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolDetail = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolSetting = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            this.toolExit = new System.Windows.Forms.ToolStripMenuItem();
+            this.MenuHelp = new System.Windows.Forms.ToolStripMenuItem();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.btnStart = new System.Windows.Forms.Button();
+            this.PreviewImage = new Emgu.CV.UI.ImageBox();
             this.panel3 = new System.Windows.Forms.Panel();
             this.label5 = new System.Windows.Forms.Label();
+            this.picCropped = new System.Windows.Forms.PictureBox();
             this.ProsentaseText = new System.Windows.Forms.Label();
             this.ExpressionText = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -63,24 +74,15 @@
             this.HelpMenu = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.ExitMenu = new System.Windows.Forms.ToolStripMenuItem();
-            this.picCropped = new System.Windows.Forms.PictureBox();
-            this.btnStart = new System.Windows.Forms.Button();
-            this.PreviewImage = new Emgu.CV.UI.ImageBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.HomeMenu = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolDetail = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolSetting = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
-            this.toolExit = new System.Windows.Forms.ToolStripMenuItem();
             this.panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.StatusBar.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.panel1.SuspendLayout();
-            this.panel3.SuspendLayout();
-            this.TrayMenu.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.picCropped)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.PreviewImage)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.panel3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.picCropped)).BeginInit();
+            this.TrayMenu.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel2
@@ -113,6 +115,17 @@
             this.label1.Size = new System.Drawing.Size(142, 28);
             this.label1.TabIndex = 1;
             this.label1.Text = "My Assistant";
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BackgroundImage = global::Expression.App.Properties.Resources.Facial_Recognition_Scan_483;
+            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Left;
+            this.pictureBox1.Location = new System.Drawing.Point(0, 0);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(57, 52);
+            this.pictureBox1.TabIndex = 0;
+            this.pictureBox1.TabStop = false;
             // 
             // StatusBar
             // 
@@ -227,7 +240,8 @@
             // 
             this.menuStrip1.Font = new System.Drawing.Font("Cambria", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.HomeMenu});
+            this.HomeMenu,
+            this.MenuHelp});
             this.menuStrip1.LayoutStyle = System.Windows.Forms.ToolStripLayoutStyle.HorizontalStackWithOverflow;
             this.menuStrip1.Location = new System.Drawing.Point(30, 60);
             this.menuStrip1.Name = "menuStrip1";
@@ -235,6 +249,65 @@
             this.menuStrip1.Size = new System.Drawing.Size(686, 27);
             this.menuStrip1.TabIndex = 3;
             this.menuStrip1.Text = "MenuBar";
+            // 
+            // HomeMenu
+            // 
+            this.HomeMenu.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolHistory,
+            this.toolDetail,
+            this.toolSetting,
+            this.toolStripSeparator1,
+            this.toolExit});
+            this.HomeMenu.Image = global::Expression.App.Properties.Resources.Menu_481;
+            this.HomeMenu.Name = "HomeMenu";
+            this.HomeMenu.Size = new System.Drawing.Size(105, 23);
+            this.HomeMenu.Text = "Purwanto";
+            this.HomeMenu.Click += new System.EventHandler(this.HomeMenu_Click);
+            // 
+            // toolHistory
+            // 
+            this.toolHistory.Image = global::Expression.App.Properties.Resources.statistics_48;
+            this.toolHistory.Name = "toolHistory";
+            this.toolHistory.Size = new System.Drawing.Size(202, 24);
+            this.toolHistory.Text = "Riwayat";
+            this.toolHistory.Click += new System.EventHandler(this.toolHistory_Click);
+            // 
+            // toolDetail
+            // 
+            this.toolDetail.Image = global::Expression.App.Properties.Resources.Administrator_Male_96;
+            this.toolDetail.Name = "toolDetail";
+            this.toolDetail.Size = new System.Drawing.Size(202, 24);
+            this.toolDetail.Text = "Data Diri";
+            this.toolDetail.Click += new System.EventHandler(this.toolDetail_Click);
+            // 
+            // toolSetting
+            // 
+            this.toolSetting.Enabled = false;
+            this.toolSetting.Image = global::Expression.App.Properties.Resources.Settings_48;
+            this.toolSetting.Name = "toolSetting";
+            this.toolSetting.Size = new System.Drawing.Size(202, 24);
+            this.toolSetting.Text = "Pengaturan Akun";
+            this.toolSetting.Visible = false;
+            // 
+            // toolStripSeparator1
+            // 
+            this.toolStripSeparator1.Name = "toolStripSeparator1";
+            this.toolStripSeparator1.Size = new System.Drawing.Size(199, 6);
+            // 
+            // toolExit
+            // 
+            this.toolExit.Image = global::Expression.App.Properties.Resources.Close_Window_321;
+            this.toolExit.Name = "toolExit";
+            this.toolExit.Size = new System.Drawing.Size(202, 24);
+            this.toolExit.Text = "Keluar";
+            this.toolExit.Click += new System.EventHandler(this.toolExit_Click);
+            // 
+            // MenuHelp
+            // 
+            this.MenuHelp.Image = global::Expression.App.Properties.Resources.Help_48__1_;
+            this.MenuHelp.Name = "MenuHelp";
+            this.MenuHelp.Size = new System.Drawing.Size(95, 23);
+            this.MenuHelp.Text = "&Bantuan";
             // 
             // panel1
             // 
@@ -245,6 +318,28 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(457, 355);
             this.panel1.TabIndex = 4;
+            // 
+            // btnStart
+            // 
+            this.btnStart.BackColor = System.Drawing.Color.Transparent;
+            this.btnStart.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnStart.ImageIndex = 2;
+            this.btnStart.ImageList = this.imageList1;
+            this.btnStart.Location = new System.Drawing.Point(176, 297);
+            this.btnStart.Name = "btnStart";
+            this.btnStart.Size = new System.Drawing.Size(122, 38);
+            this.btnStart.TabIndex = 6;
+            this.btnStart.UseVisualStyleBackColor = false;
+            this.btnStart.Click += new System.EventHandler(this.btnStart_Click);
+            // 
+            // PreviewImage
+            // 
+            this.PreviewImage.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.PreviewImage.Location = new System.Drawing.Point(0, 0);
+            this.PreviewImage.Name = "PreviewImage";
+            this.PreviewImage.Size = new System.Drawing.Size(455, 353);
+            this.PreviewImage.TabIndex = 5;
+            this.PreviewImage.TabStop = false;
             // 
             // panel3
             // 
@@ -271,6 +366,16 @@
             this.label5.TabIndex = 25;
             this.label5.Text = "Citra Ekspresi";
             // 
+            // picCropped
+            // 
+            this.picCropped.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.picCropped.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.picCropped.Location = new System.Drawing.Point(4, 144);
+            this.picCropped.Name = "picCropped";
+            this.picCropped.Size = new System.Drawing.Size(212, 206);
+            this.picCropped.TabIndex = 4;
+            this.picCropped.TabStop = false;
+            // 
             // ProsentaseText
             // 
             this.ProsentaseText.AutoSize = true;
@@ -286,9 +391,9 @@
             this.ExpressionText.Font = new System.Drawing.Font("Cambria", 27.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ExpressionText.Location = new System.Drawing.Point(8, 45);
             this.ExpressionText.Name = "ExpressionText";
-            this.ExpressionText.Size = new System.Drawing.Size(156, 43);
+            this.ExpressionText.Size = new System.Drawing.Size(31, 43);
             this.ExpressionText.TabIndex = 2;
-            this.ExpressionText.Text = "SENANG";
+            this.ExpressionText.Text = "-";
             // 
             // label3
             // 
@@ -366,7 +471,7 @@
             this.toolStripSeparator2,
             this.ExitMenu});
             this.TrayMenu.Name = "TrayMenu";
-            this.TrayMenu.Size = new System.Drawing.Size(171, 120);
+            this.TrayMenu.Size = new System.Drawing.Size(171, 98);
             // 
             // ShowMenu
             // 
@@ -401,91 +506,6 @@
             this.ExitMenu.Text = "Keluar";
             this.ExitMenu.Click += new System.EventHandler(this.ExitMenu_Click);
             // 
-            // picCropped
-            // 
-            this.picCropped.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.picCropped.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.picCropped.Location = new System.Drawing.Point(4, 144);
-            this.picCropped.Name = "picCropped";
-            this.picCropped.Size = new System.Drawing.Size(212, 206);
-            this.picCropped.TabIndex = 4;
-            this.picCropped.TabStop = false;
-            // 
-            // btnStart
-            // 
-            this.btnStart.BackColor = System.Drawing.Color.Transparent;
-            this.btnStart.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnStart.ImageIndex = 2;
-            this.btnStart.ImageList = this.imageList1;
-            this.btnStart.Location = new System.Drawing.Point(176, 297);
-            this.btnStart.Name = "btnStart";
-            this.btnStart.Size = new System.Drawing.Size(122, 38);
-            this.btnStart.TabIndex = 6;
-            this.btnStart.UseVisualStyleBackColor = false;
-            this.btnStart.Click += new System.EventHandler(this.btnStart_Click);
-            // 
-            // PreviewImage
-            // 
-            this.PreviewImage.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.PreviewImage.Location = new System.Drawing.Point(0, 0);
-            this.PreviewImage.Name = "PreviewImage";
-            this.PreviewImage.Size = new System.Drawing.Size(455, 353);
-            this.PreviewImage.TabIndex = 5;
-            this.PreviewImage.TabStop = false;
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.BackgroundImage = global::Expression.App.Properties.Resources.Facial_Recognition_Scan_483;
-            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Left;
-            this.pictureBox1.Location = new System.Drawing.Point(0, 0);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(57, 52);
-            this.pictureBox1.TabIndex = 0;
-            this.pictureBox1.TabStop = false;
-            // 
-            // HomeMenu
-            // 
-            this.HomeMenu.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolDetail,
-            this.toolSetting,
-            this.toolStripSeparator1,
-            this.toolExit});
-            this.HomeMenu.Image = global::Expression.App.Properties.Resources.Menu_481;
-            this.HomeMenu.Name = "HomeMenu";
-            this.HomeMenu.Size = new System.Drawing.Size(105, 23);
-            this.HomeMenu.Text = "Purwanto";
-            this.HomeMenu.Click += new System.EventHandler(this.HomeMenu_Click);
-            // 
-            // toolDetail
-            // 
-            this.toolDetail.Image = global::Expression.App.Properties.Resources.Administrator_Male_96;
-            this.toolDetail.Name = "toolDetail";
-            this.toolDetail.Size = new System.Drawing.Size(202, 24);
-            this.toolDetail.Text = "Data Diri";
-            this.toolDetail.Click += new System.EventHandler(this.toolDetail_Click);
-            // 
-            // toolSetting
-            // 
-            this.toolSetting.Enabled = false;
-            this.toolSetting.Image = global::Expression.App.Properties.Resources.Settings_48;
-            this.toolSetting.Name = "toolSetting";
-            this.toolSetting.Size = new System.Drawing.Size(202, 24);
-            this.toolSetting.Text = "Pengaturan Akun";
-            // 
-            // toolStripSeparator1
-            // 
-            this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(199, 6);
-            // 
-            // toolExit
-            // 
-            this.toolExit.Image = global::Expression.App.Properties.Resources.Close_Window_321;
-            this.toolExit.Name = "toolExit";
-            this.toolExit.Size = new System.Drawing.Size(202, 24);
-            this.toolExit.Text = "Keluar";
-            this.toolExit.Click += new System.EventHandler(this.toolExit_Click);
-            // 
             // ExpressionAppView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 19F);
@@ -511,17 +531,17 @@
             this.Resize += new System.EventHandler(this.ExpressionAppView_Resize);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.StatusBar.ResumeLayout(false);
             this.StatusBar.PerformLayout();
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.panel1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.PreviewImage)).EndInit();
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
-            this.TrayMenu.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.picCropped)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.PreviewImage)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.TrayMenu.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -570,5 +590,7 @@
         private System.Windows.Forms.Label ProsentaseText;
         private System.Windows.Forms.PictureBox picCropped;
         private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.ToolStripMenuItem MenuHelp;
+        private System.Windows.Forms.ToolStripMenuItem toolHistory;
     }
 }
